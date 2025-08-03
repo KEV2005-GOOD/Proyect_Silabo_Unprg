@@ -1,0 +1,28 @@
+<?xml version= "1.0" encoding="UTF-8" standalone="yes"?>
+<usuarios>
+    <usuario>
+        <nombreUsuario>jairo</nombreUsuario>
+        <contraseña>123</contraseña>
+        <docente>
+            <nombres>Jairo Kariny</nombres>
+            <apellidos>Aranda Gomez</apellidos>
+            <gradoAcademico>Ingeniero</gradoAcademico>
+            <DNI>60775041</DNI>
+            <correo>jaranda@unprg.edu.pe</correo>
+            <firmaPath>firmas/firma_jairo.jpg</firmaPath>
+        </docente>
+    </usuario>
+    <usuario>
+        <nombreUsuario>pedro</nombreUsuario>
+        <contraseña>123</contraseña>
+        <docente>
+            <nombres>Pedro Jose</nombres>
+            <apellidos>Perez Gomez</apellidos>
+            <gradoAcademico>Doctor</gradoAcademico>
+            <DNI>60775042</DNI>
+            <correo>pejomez@unprg.edu.pe</correo>
+            <firmaPath>firmas/firma_pedro.jpg</firmaPath>
+        </docente>
+    </usuario>
+</usuarios>
+

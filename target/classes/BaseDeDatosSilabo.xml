@@ -1,0 +1,79 @@
+<?xml version= "1.0" encoding="UTF-8" standalone="yes"?>
+<facultad vigente="true">
+    <nombre>Facultad de Ciencias Físicas y Matemáticas</nombre>
+    <abreviatura>FACFYM</abreviatura>
+    <departamentosAcademicos>
+        <departamentoAcademico vigente="true">
+            <nombre>Computación y Electrónica</nombre>
+            <escuelas>
+                <escuela vigente="true">
+                    <nombre>Computación e Informática</nombre>
+                    <ciclos>
+                        <ciclo vigente="true">
+                            <nombre>III</nombre>
+                            <cursos>
+                                <curso vigente="true">
+                                    <nombre>Diseño de Base de Datos</nombre>
+                                    <tipo>Especifico</tipo>
+                                    <codigoCurso>CYEE1012</codigoCurso>
+                                    <prerrequisitos>Ingeniería de requerimientos</prerrequisitos>
+                                    <cicloEstudio>3</cicloEstudio>
+                                    <creditos>4</creditos>
+                                    <HorasTeoricaSemanales>2</HorasTeoricaSemanales>
+                                    <HorasPracticasSemanales>4</HorasPracticasSemanales>
+                                    <sumilla>
+                                        La asignatura “Diseño de base de datos” tiene como resultado de aprendizaje el desarrollo de la capacidad
+                                        “Diseña bases de datos de acuerdo a las necesidades de información de las organizaciones y estándares de
+                                        diseño”, que contribuye al desarrollo de la competencia específica “Gestiona bases de datos de acuerdo a las
+                                        estrategias y continuidad operativa organizacional, considerando los estándares y buenas prácticas de
+                                        ingeniería del software”, del perfil de egreso.
+                                        Es una asignatura de naturaleza teórico práctica, enmarcada en el enfoque por competencias que posibilita
+                                        una metodología activa en un entorno real de enseñanza aprendizaje situando al estudiante como
+                                        protagonista de su aprendizaje y al docente como facilitador del proceso formativo.
+                                        Propone actividades como: video motivador, presentación de propósito de la sesión, recojo de saberes previos
+                                        a través de preguntas, práctica dirigida, planteamiento y resolución de casos, presentan el producto, trabajos
+                                        individuales y/o en equipos; que posibiliten el conocimiento de fundamentos de bases de datos, modelo
+                                        relacional, álgebra relacional; de igual manera, herramientas CASE, diseño lógico de base de datos, gestores
+                                        de bases de datos relacional (SGBD), sentencias DDL y DML. Asimismo, las habilidades relacionadas con el
+                                        empleo del modelo relacional, maneja operadores del álgebra relacional, Aplica el modelo del ciclo de diseño
+                                        de bases de datos, manejo de herramienta CASE; asi como, manejo de sistemas gestores de bases de datos,
+                                        uso de sentencias para creación de bases de datos relacionales y sus objetos y emplea sentencias para
+                                        consumo de datos. 
+                                    </sumilla>
+                                    <competenciaProfesional>
+                                        Gestiona bases de datos de acuerdo a las estrategias y continuidad operativa organizacional, considerando los estándares y
+                                        buenas prácticas de ingeniería del software.
+                                    </competenciaProfesional>
+                                    <capacidadDelCurso>
+                                        Diseña bases de datos de acuerdo a las necesidades de información de las organizaciones y estándares de diseño.
+                                    </capacidadDelCurso>
+                                    <desempeños>
+                                        <desempeño>
+                                            <nombre>D1</nombre>
+                                            <descripcion>
+                                                Implementa el modelo relacional utilizando operadores del álgebra relacional.
+                                            </descripcion>                                    
+                                        </desempeño>
+                                        <desempeño>
+                                            <nombre>D2</nombre>
+                                            <descripcion>
+                                                Construye el modelo de base de datos relacional considerando los requerimientos organizacionales identificados, las formas normales y buenas prácticas.
+                                            </descripcion>
+                                        </desempeño>
+                                        <desempeño>
+                                            <nombre>D3</nombre>
+                                            <descripcion>
+                                                Utiliza las sentencias de definición y manipulación de datos considerando sistemas gestores de basesde datos relacional y el estándar SQL.
+                                            </descripcion>
+                                        </desempeño>
+                                    </desempeños>
+                                </curso>
+                            </cursos>
+                        </ciclo>
+                    </ciclos>
+                </escuela>
+            </escuelas>
+        </departamentoAcademico>
+    </departamentosAcademicos>
+</facultad>
+
