@@ -679,18 +679,8 @@ public class JFUnidades extends javax.swing.JFrame {
     private void cmbUnidadConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUnidadConfigActionPerformed
         cmbUnidadConfig.addActionListener(e -> {
             mostrarUnidadSeleccionadaParaHabilidades();
-            mostrarSemanasDeHabilidad();
+//            mostrarSemanasDeHabilidad();
         });
-//        cmbUnidadConfig.addActionListener(e -> {
-//            Object item = cmbUnidadConfig.getSelectedItem();
-//            if (item instanceof Unidad) {
-//                unidadSeleccionada = (Unidad) item;
-//                mostrarUnidadSeleccionadaParaHabilidades();
-//                mostrarSemanasDeHabilidad();
-//            } else {
-//                unidadSeleccionada = null;
-//            }
-//        });
     }//GEN-LAST:event_cmbUnidadConfigActionPerformed
 
     public static void main(String args[]) {
@@ -812,8 +802,8 @@ public class JFUnidades extends javax.swing.JFrame {
     }
 
     private void mostrarUnidadSeleccionadaParaHabilidades() {
-        int index = cmbUnidadConfig.getSelectedIndex();
-        List<Unidad> disponibles = modeloComboUnidadConfig.getUnidad();
+        int index = cmbUnidad.getSelectedIndex();
+        List<Unidad> disponibles = this.unidades;
         if (index >= 0 && disponibles != null && index < disponibles.size()) {
             unidadSeleccionada = disponibles.get(index);
             this.modeloComboHabilidad.setHabi(unidadSeleccionada.getHabilidadesRequeridas());
