@@ -1,0 +1,32 @@
+
+# Evita rastrear archivos compilados
+*.class
+*.jar
+*.war
+
+# Ignora carpetas de compilación
+/bin/
+/build/
+/out/
+/target/
+
+# Archivos de respaldo y temporales
+*.bak
+*.tmp
+*.log
+
+# Eclipse / NetBeans / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+nbproject/
+.vscode/
+
+.DS_Store
+Thumbs.db
+
+debug/
+temp/
+test-output/
+*.diff

@@ -96,6 +96,8 @@ GUI\JICrearSilabo$19.class
 GUI\JICrearSilabo$29.class
 GUI\JIIncio$1.class
 entidades\EvidenciaAprendizaje.class
+GUI\modelos\semanaComoModel.class
+GUI\JFUnidades$14.class
 GUI\JFUnidades$8.class
 GUI\JFSilabo.class
 entidades\Escuela.class
@@ -117,6 +119,7 @@ GUI\JFDatosCompletarRegistro.class
 GUI\JFUnidades$7.class
 GUI\JFDatosCompletarRegistro$5.class
 GUI\JFLogeo.class
+GUI\JFUnidades$15.class
 GUI\JFCrearCuenta$7.class
 Recursos\VersionesHandler.class
 GUI\JIIncio$3.class

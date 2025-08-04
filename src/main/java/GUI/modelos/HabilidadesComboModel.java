@@ -3,7 +3,6 @@ package GUI.modelos;
 
 
 import entidades.HabilidadRequerida;
-import entidades.Unidad;
 import java.util.List;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;

@@ -1634,7 +1634,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         }
 
         JFUnidades frm = JFUnidades.mostrar(unidadesLis, (int) spDuración.getValue());
-        this.unidadesLis = JFUnidades.devolverDatos();
     }//GEN-LAST:event_btnEditarUnidadesActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

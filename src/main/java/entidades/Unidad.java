@@ -11,7 +11,7 @@ public class Unidad {
     public Unidad() {
     }
 
-    public Unidad(String nombre, String desempeño,List<HabilidadRequerida> habilidadesRequeridas) {
+    public Unidad(String nombre, String desempeño, List<HabilidadRequerida> habilidadesRequeridas) {
         this.nombre = nombre;
         this.desempeño = desempeño;
         this.habilidadesRequeridas = habilidadesRequeridas;
@@ -40,4 +40,10 @@ public class Unidad {
     public void setHabilidadesRequeridas(List<HabilidadRequerida> habilidadesRequeridas) {
         this.habilidadesRequeridas = habilidadesRequeridas;
     }
+
+    @Override
+    public String toString() {
+        return nombre; // Esto hace que el combo muestre el nombre, pero mantenga el objeto
+    }
+
 }

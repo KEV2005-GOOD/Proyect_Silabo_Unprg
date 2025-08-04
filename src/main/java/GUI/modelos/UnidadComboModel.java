@@ -1,7 +1,6 @@
 
 package GUI.modelos;
 
-import entidades.Curso;
 import entidades.Unidad;
 import java.util.List;
 import javax.swing.AbstractListModel;

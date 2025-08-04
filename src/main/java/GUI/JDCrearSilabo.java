@@ -34,7 +34,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         cargarFacultades();
-
     }
 
     @SuppressWarnings("unchecked")
