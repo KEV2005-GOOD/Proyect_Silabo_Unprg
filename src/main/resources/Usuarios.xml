@@ -28,4 +28,8 @@
         <nombreUsuario>renzo</nombreUsuario>
         <contraseña>123</contraseña>
     </usuario>
+    <usuario>
+        <nombreUsuario>fab</nombreUsuario>
+        <contraseña>123</contraseña>
+    </usuario>
 </usuarios>
