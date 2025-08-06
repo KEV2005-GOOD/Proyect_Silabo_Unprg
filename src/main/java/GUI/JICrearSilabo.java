@@ -7,7 +7,6 @@ import GUI.modelos.EvaluacionesTableModel;
 import GUI.modelos.TablaEvaluacionModel;
 import GUI.modelos.UnidadComboModel;
 import GUI.modelos.UnidadDetalladaTableModel;
-import GUI.modelos.TableModelStandar;
 import entidades.Ciclo;
 import entidades.Curso;
 import entidades.DepartamentoAcademico;
@@ -45,7 +44,7 @@ import javax.swing.table.TableModel;
 
 public class JICrearSilabo extends javax.swing.JInternalFrame {
 
-    private EvaluacionesTableModel modelo = new EvaluacionesTableModel();
+    private EvaluacionesTableModel modeloCalificación = new EvaluacionesTableModel();
     private static JICrearSilabo frm;
     private static Escuela escuela;
     private static Facultad facultad;
@@ -59,7 +58,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private boolean plan = true;
 
     private static Docente usuarioCreador;
-    private static List<EvaluacionesCalificadas> evaluaciones = new ArrayList<EvaluacionesCalificadas>();
+    private static List<EvaluacionesCalificadas> evaluacionesCalificadas = new ArrayList<EvaluacionesCalificadas>();
 
     private List<Ciclo> ciclosVigentes;
     private List<Curso> cursosVigentes;
@@ -207,7 +206,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jLabel20 = new javax.swing.JLabel();
         txtPromedioFinal = new javax.swing.JTextField();
         btnGenerarFormula = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
+        btEliminar = new javax.swing.JButton();
         btnAgregarEvaluacion = new javax.swing.JButton();
         panSistemaEvaluación = new javax.swing.JPanel();
         scpEvaluación = new javax.swing.JScrollPane();
@@ -1030,7 +1029,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         panSistemaCalificación.setBorder(javax.swing.BorderFactory.createTitledBorder("VIII. Sistema de Calificación"));
 
-        tblCalifición.setModel(this.modelo);
+        tblCalifición.setModel(this.modeloCalificación);
         scpTablaCalificación.setViewportView(tblCalifición);
 
         jLabel20.setText("Promedio final =");
@@ -1045,10 +1044,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             }
         });
 
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        btEliminar.setText("Eliminar");
+        btEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                btEliminarActionPerformed(evt);
             }
         });
 
@@ -1076,7 +1075,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                         .addComponent(txtPromedioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(panSistemaCalificaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarEvaluacion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGenerarFormula))
                 .addGap(15, 15, 15))
@@ -1092,9 +1091,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                     .addGroup(panSistemaCalificaciónLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(btnAgregarEvaluacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)))
+                        .addGap(40, 40, 40)
+                        .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)))
                 .addGroup(panSistemaCalificaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(txtPromedioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1552,15 +1551,24 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     private void btnAgregarEvaluacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEvaluacionActionPerformed
         JDAgregarEvaluacion frmEval = new JDAgregarEvaluacion(null, true);
+        frmEval.darleUnidades(unidadesLis);
         frmEval.setVisible(true);
-        EvaluacionesCalificadas eval = null;
-        eval = frmEval.agregar();
-        if (eval != null) {
-            this.evaluaciones.add(eval);
+        EvaluacionesCalificadas eva = frmEval.agregar();
+        if (eva != null) {
+            boolean yaExiste = this.evaluacionesCalificadas.stream()
+                    .anyMatch(e -> e != null
+                    && e.getNombreEvaluacion().equalsIgnoreCase(eva.getNombreEvaluacion())
+                    && e.getSiglasEvaluacion().equalsIgnoreCase(eva.getSiglasEvaluacion()));
+
+            if (!yaExiste) {
+                this.evaluacionesCalificadas.add(eva);
+                this.modeloCalificación.setCalificaciones(evaluacionesCalificadas);
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Ya existe una evaluación con el mismo nombre y siglas."
+                );
+            }
         }
-        this.listarEvaluaciones();
-        frmEval.dispose();
-        frmEval = null;
     }//GEN-LAST:event_btnAgregarEvaluacionActionPerformed
 
     private void btnMostrarUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarUnidadActionPerformed
@@ -1622,27 +1630,34 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        EvaluacionesCalificadas eval;
+    private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
+
         int fila = this.tblCalifición.getSelectedRow();
+
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Selecciona una fila para modificar");
+            JOptionPane.showMessageDialog(null, "Selecciona una fila para eliminar", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        EvaluacionesCalificadas seleccionada = modelo.getCalificaciones().get(fila);
 
-        JDAgregarEvaluacion dialogo = new JDAgregarEvaluacion(null, true);
-        dialogo.cargarDatos(seleccionada);
-        eval = dialogo.agregar();
-        this.evaluaciones.set(fila, eval);
-        this.listarEvaluaciones();
-    }//GEN-LAST:event_btnModificarActionPerformed
+        EvaluacionesCalificadas seleccionada = modeloCalificación.getCalificaciones().get(fila);
+
+        int opcion = JOptionPane.showConfirmDialog(null,
+                "¿Estás seguro de que deseas eliminar la evaluación \"" + seleccionada.getNombreEvaluacion() + "\"?",
+                "Confirmar eliminación",
+                JOptionPane.YES_NO_OPTION);
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            evaluacionesCalificadas.remove(fila);
+            modeloCalificación.setCalificaciones(evaluacionesCalificadas);
+        }
+
+    }//GEN-LAST:event_btEliminarActionPerformed
 
     private void btnGenerarFormulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarFormulaActionPerformed
         if (this.validarSumaGlobalPesos(this.tblCalifición) == true) {
             actualizarFormulaPromedio(this.tblCalifición, this.txtPromedioFinal);
         } else {
-            this.btnModificar.requestFocusInWindow();
+            this.btEliminar.requestFocusInWindow();
         }
     }//GEN-LAST:event_btnGenerarFormulaActionPerformed
 
@@ -1699,6 +1714,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea axtSumilla;
     private javax.swing.JButton bntAtras3;
     private javax.swing.JButton bntSiguiente1;
+    private javax.swing.JButton btEliminar;
     private javax.swing.JButton btnAgregarEvaluacion;
     private javax.swing.JButton btnAnterior4;
     private javax.swing.JButton btnAnterior5;
@@ -1708,7 +1724,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDetallado;
     private javax.swing.JButton btnEditarUnidades;
     private javax.swing.JButton btnGenerarFormula;
-    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnMostrarUnidad;
     private javax.swing.JButton btnSiguiente2;
     private javax.swing.JButton btnSiguiente3;
@@ -1995,10 +2010,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         txtGrado.setText(usuarioCreador.getGrado());
     }
 
-    private void listarEvaluaciones() {
-        this.modelo.setCalificaciones(this.evaluaciones);
-    }
-
     public void cargarDatosASilabo() {
         this.txtUniversidad.setText("Universidad Nacional Pedro Ruiz Gallo");
         this.txtFacultad.setText(this.facultad.getNombre());
@@ -2044,4 +2055,5 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         // justto esto se crea en file los archivos del programa
 
     }
+
 }
