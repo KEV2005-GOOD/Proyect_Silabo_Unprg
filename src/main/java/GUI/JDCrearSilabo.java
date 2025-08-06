@@ -8,7 +8,6 @@ import entidades.DepartamentoAcademico;
 import entidades.Escuela;
 import entidades.Facultad;
 import entidades.Silabo;
-import entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -17,15 +16,15 @@ public class JDCrearSilabo extends javax.swing.JDialog {
 
     private Facultad facultadSeleccionada = null;
     private List<Facultad> facultadesVigentes = null;
-    private FacultadComboModel modeloFacultad = new FacultadComboModel();
+    private final FacultadComboModel modeloFacultad = new FacultadComboModel();
 
     private DepartamentoAcademico departamentoSeleccionado = null;
     private List<DepartamentoAcademico> departamentosVigentes = null;
-    private DepartamentoComboModel modeloDepartemento = new DepartamentoComboModel();
+    private final DepartamentoComboModel modeloDepartemento = new DepartamentoComboModel();
 
     private Escuela escuelaSelecionada = null;
     private List<Escuela> escuelaVigente = null;
-    private EscuelaComboModel modeloEscuela = new EscuelaComboModel();
+    private final EscuelaComboModel modeloEscuela = new EscuelaComboModel();
 
     private static Silabo silabo;
 
@@ -217,7 +216,6 @@ public class JDCrearSilabo extends javax.swing.JDialog {
             cargarDepartamento();
             this.cmbDepartamento.setSelectedIndex(-1);
             this.cmbEscuela.setSelectedIndex(-1);
-
         }
 
     }//GEN-LAST:event_cmbFacultadActionPerformed

@@ -2,11 +2,12 @@ package GUI.modelos;
 
 import entidades.HabilidadRequerida;
 import entidades.Semana;
+import entidades.Unidad;
 import java.util.List;
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
-public class semanaComoModel extends AbstractListModel<String> implements ComboBoxModel<String> {
+public class semanaComboModel extends AbstractListModel<String> implements ComboBoxModel<String> {
 
     private List<Semana> semana;
     private Semana seleccionado;
@@ -27,6 +28,8 @@ public class semanaComoModel extends AbstractListModel<String> implements ComboB
         this.seleccionado = seleccionado;
     }
 
+
+
     @Override
     public int getSize() {
         int cantidad = 0;
@@ -46,9 +49,9 @@ public class semanaComoModel extends AbstractListModel<String> implements ComboB
         this.seleccionado = null;
         if (anItem != null) {
 
-            for (Semana semanas : this.semana) {
-                if (String.valueOf(semanas.getNumeroSemana()).equals(anItem.toString()) == true) {
-                    this.seleccionado = semanas;
+            for (Semana semana : this.semana) {
+                if ((String.valueOf(semana.getNumeroSemana())).equals(anItem.toString()) == true) {
+                    this.seleccionado = semana;
                     return;
                 }
             }

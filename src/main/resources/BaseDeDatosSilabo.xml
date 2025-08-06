@@ -1,10 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-
-
 <facultad vigente="true">
     <nombre>Facultad de Ciencias Físicas y Matemáticas</nombre>
     <abreviatura>FACFYM</abreviatura>
     <departamentosAcademicos>
+        <departamentoAcademico vigente="true">
+            <nombre>Matemática</nombre>
+            <escuelas>
+                <escuela vigente="true">
+                    <nombre>Matemática</nombre>
+                    <ciclos>
+                        <ciclo vigente="true">
+                            <nombre>VI</nombre>
+                            <cursos>
+                                <curso vigente="true">
+                                    <nombre>Administración de Matemática</nombre>
+                                    <tipo>Especialidad</tipo>
+                                    <codigoCurso>CYES1009</codigoCurso>
+                                    <prerrequisitos>Programación de Base de Datos Fundamentos de redes y comunicaciones</prerrequisitos>
+                                    <cicloEstudio>6</cicloEstudio>
+                                    <creditos>6</creditos>
+                                    <HorasTeoricaSemanales>2</HorasTeoricaSemanales>
+                                    <HorasPracticasSemanales>4</HorasPracticasSemanales>
+                                    <sumilla>
+                                        La asignatura “Administración de Base de Datos” tiene como resultado de aprendizaje el desarrollo de la capacidad “Administra las bases de datos de acuerdo a las necesidades de continuidad operativo de las organizaciones”, que contribuye al desarrollo de la competencia específica “Gestiona bases de datos de acuerdo a las estrategias y continuidad operativa organizacional, considerando los estándares y buenas prácticas de ingeniería del software”, del perfil de egreso. Es una asignatura de naturaleza teórico práctica, enmarcada en el enfoque por competencias que posibilita una metodología activa en un entorno real de enseñanza aprendizaje situando al estudiante como protagonista de su aprendizaje y al docente como facilitador del proceso formativo. Propone actividades como: video motivador, presentación de propósito de la sesión,recojo de saberes previos a través de preguntas, practica dirigida, planteamiento y resolución de casos, presentan el producto, trabajos individuales y/o en equipos; que posibiliten el conocimiento de administración de bases de datos: conceptos de la arquitectura de gestores relaciones; también la configuración de gestión de extensión, segmentos y espacios de tabla; así como codificación para el manejo de índices, permanencia, recuperación y funciones específicas de bitácoras. Asimismo, las habilidades relacionadas con interpreta los fundamentos de la arquitectura, manejo de la arquitectura TI, así como compara y utilización de los gestores relaciones y no relacionales; igualmente, manejo en la gestión de recursos, maneja la gestión y almacenamiento de datos, distribuye los espacios de almacenamiento y memoria de datos; finalmente, manejo de capacidad de organización, uso de plataformas de exportación y migración de datos, así como monitorea el estado del servidor. 
+                                    </sumilla>
+                                    <competenciaProfesional>
+                                        Gestiona bases de datos de acuerdo a las estrategias y continuidad operativa organizacional, considerando los estándares y buenas prácticas de ingeniería del software.
+                                    </competenciaProfesional>
+                                    <capacidadDelCurso>
+                                        Administra las bases de datos de acuerdo a las necesidades de continuidad operativa de las organizaciones.
+                                    </capacidadDelCurso>
+                                    <desempeños>
+                                        <desempeño>
+                                            <nombre>D1</nombre>
+                                            <descripcion>
+                                                Analiza los fundamentos de arquitectura del sistema gestor de base de datos, en base a requerimientos organizacionales.
+                                            </descripcion>                                    
+                                        </desempeño>
+                                        <desempeño>
+                                            <nombre>D2</nombre>
+                                            <descripcion>
+                                                Organiza el espacio en discos y memoria del servidor, considerando el funcionamiento del SGBD y la infraestructura existente.
+                                            </descripcion>
+                                        </desempeño>
+                                        <desempeño>
+                                            <nombre>D3</nombre>
+                                            <descripcion>
+                                                Mantiene la operatividad del SGBD mediante el uso de parámetros, cálculos y procedimientos con base en los datos históricos y recientes.
+                                            </descripcion>
+                                        </desempeño>
+                                    </desempeños> 
+                                </curso>
+                            </cursos>
+                        </ciclo>
+                    </ciclos>
+                </escuela>        
+            </escuelas>
+        </departamentoAcademico>
         <departamentoAcademico vigente="true">
             <nombre>Computación y Electrónica</nombre>
             <escuelas>
@@ -354,10 +406,6 @@
 
                             </cursos>
                         </ciclo>
-
-
-
-
 
                         <ciclo vigente="true">
                             <nombre>VII</nombre>

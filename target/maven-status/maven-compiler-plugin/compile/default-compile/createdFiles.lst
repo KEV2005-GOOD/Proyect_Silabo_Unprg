@@ -44,7 +44,6 @@ GUI\JICuenta$6.class
 GUI\modelos\FacultadComboModel.class
 GUI\JICrearSilabo$29.class
 entidades\EvidenciaAprendizaje.class
-GUI\modelos\semanaComoModel.class
 GUI\JFUnidades$14.class
 GUI\JFUnidades$8.class
 entidades\Silabo.class
@@ -127,6 +126,7 @@ GUI\JIIncio$1.class
 GUI\JFSilabo.class
 entidades\Escuela.class
 GUI\JICrearSilabo$1.class
+GUI\modelos\semanaComboModel.class
 GUI\JDAgregarEvaluacion$1.class
 com\mycompany\proyect_silabo_unprg\Proyect_Silabo_Unprg.class
 GUI\JFSilabo$4.class
