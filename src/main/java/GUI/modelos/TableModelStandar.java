@@ -3,13 +3,11 @@ package GUI.modelos;
 import entidades.Unidad;
 import entidades.HabilidadRequerida;
 import entidades.Semana;
-import entidades.EvidenciaAprendizaje;
-
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UnidadTableModel extends AbstractTableModel {
+public class TableModelStandar extends AbstractTableModel {
 
     private List<Unidad> unidades;
     private final String[] columnas = {
@@ -52,7 +50,6 @@ public class UnidadTableModel extends AbstractTableModel {
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        // Solo la columna de desempeño será editable (por ejemplo)
         return columnIndex == 0;
     }
 

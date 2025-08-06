@@ -4,8 +4,10 @@ import GUI.modelos.CiclosComboModel;
 import GUI.modelos.CursoComboModel;
 import GUI.modelos.DesempeñosTableModelo;
 import GUI.modelos.EvaluacionesTableModel;
+import GUI.modelos.TablaEvaluacionModel;
 import GUI.modelos.UnidadComboModel;
-import GUI.modelos.UnidadTableModel;
+import GUI.modelos.UnidadDetalladaTableModel;
+import GUI.modelos.TableModelStandar;
 import entidades.Ciclo;
 import entidades.Curso;
 import entidades.DepartamentoAcademico;
@@ -62,12 +64,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private List<Ciclo> ciclosVigentes;
     private List<Curso> cursosVigentes;
     private List<Unidad> unidadesLis;
-    private UnidadTableModel modeloUnidad = new UnidadTableModel();
+    private UnidadDetalladaTableModel modeloUnidad = new UnidadDetalladaTableModel();
 
     private CiclosComboModel modeloCiclos = new CiclosComboModel();
     private CursoComboModel modeloCursos = new CursoComboModel();
     private DesempeñosTableModelo modeloDesempeño = new DesempeñosTableModelo();
     private UnidadComboModel modeloComboUnidad = new UnidadComboModel();
+    private TablaEvaluacionModel modeloEvaluacion = new TablaEvaluacionModel();
 
     public JICrearSilabo(Silabo silabo, Usuario user) throws IOException {
         initComponents();
@@ -186,9 +189,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         tblDesempeñosUnidades = new javax.swing.JTable();
         btnEditarUnidades = new javax.swing.JButton();
-        panUnidades = new javax.swing.JPanel();
-        jscUnidad = new javax.swing.JScrollPane();
-        tblUnidades = new javax.swing.JTable();
+        panUnidadesDetallada = new javax.swing.JPanel();
+        scpUniddadesDetallada = new javax.swing.JScrollPane();
+        tblUnidadesDetalladas = new javax.swing.JTable();
         lblUnidades = new javax.swing.JLabel();
         cmbUMostrarUnidades = new javax.swing.JComboBox<>();
         btnAnterior4 = new javax.swing.JButton();
@@ -196,16 +199,19 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         btnMostrarUnidad = new javax.swing.JButton();
         pn5 = new javax.swing.JPanel();
-        ADS = new javax.swing.JPanel();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        tblEvaluaciones = new javax.swing.JTable();
-        txtPromedioFinal = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
         btnSiguiente5 = new javax.swing.JButton();
         btnAnterior5 = new javax.swing.JButton();
-        btnAgregarEvaluacion = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
+        panSistemaCalificación = new javax.swing.JPanel();
+        scpTablaCalificación = new javax.swing.JScrollPane();
+        tblCalifición = new javax.swing.JTable();
+        jLabel20 = new javax.swing.JLabel();
+        txtPromedioFinal = new javax.swing.JTextField();
         btnGenerarFormula = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnAgregarEvaluacion = new javax.swing.JButton();
+        panSistemaEvaluación = new javax.swing.JPanel();
+        scpEvaluación = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         pn6 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         txaMetodologiaEnseñanza = new javax.swing.JTextArea();
@@ -671,7 +677,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -738,7 +744,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSiguiente2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -850,7 +856,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(pn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSiguiente3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bntAtras3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -877,29 +883,32 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEditarUnidades)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 568, Short.MAX_VALUE)
+                        .addComponent(btnEditarUnidades))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEditarUnidades)
                 .addContainerGap())
         );
 
-        panUnidades.setEnabled(false);
+        panUnidadesDetallada.setEnabled(false);
 
-        jscUnidad.setEnabled(false);
+        scpUniddadesDetallada.setEnabled(false);
 
-        tblUnidades.setModel(this.modeloUnidad);
-        tblUnidades.setEnabled(false);
-        jscUnidad.setViewportView(tblUnidades);
+        tblUnidadesDetalladas.setModel(this.modeloUnidad);
+        tblUnidadesDetalladas.setEnabled(false);
+        scpUniddadesDetallada.setViewportView(tblUnidadesDetalladas);
 
         lblUnidades.setText("Unidad:");
         lblUnidades.setEnabled(false);
@@ -913,27 +922,27 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout panUnidadesLayout = new javax.swing.GroupLayout(panUnidades);
-        panUnidades.setLayout(panUnidadesLayout);
-        panUnidadesLayout.setHorizontalGroup(
-            panUnidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jscUnidad, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
-            .addGroup(panUnidadesLayout.createSequentialGroup()
+        javax.swing.GroupLayout panUnidadesDetalladaLayout = new javax.swing.GroupLayout(panUnidadesDetallada);
+        panUnidadesDetallada.setLayout(panUnidadesDetalladaLayout);
+        panUnidadesDetalladaLayout.setHorizontalGroup(
+            panUnidadesDetalladaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scpUniddadesDetallada, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
+            .addGroup(panUnidadesDetalladaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addComponent(cmbUMostrarUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        panUnidadesLayout.setVerticalGroup(
-            panUnidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUnidadesLayout.createSequentialGroup()
+        panUnidadesDetalladaLayout.setVerticalGroup(
+            panUnidadesDetalladaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panUnidadesDetalladaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panUnidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panUnidadesDetalladaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbUMostrarUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUnidades))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jscUnidad, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                .addComponent(scpUniddadesDetallada, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -970,7 +979,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                     .addGroup(pn4Layout.createSequentialGroup()
                         .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panUnidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panUnidadesDetallada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(pn4Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(btnAnterior4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -978,7 +987,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                                 .addComponent(btnSiguiente4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(9, 9, 9))
                     .addGroup(pn4Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(btnMostrarUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -989,13 +997,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             .addGroup(pn4Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(btnMostrarUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addComponent(panUnidadesDetallada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSiguiente4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAnterior4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1004,31 +1012,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         pn8.addTab("Pagina 4", pn4);
 
-        pn5.setBorder(javax.swing.BorderFactory.createTitledBorder("VIII. SISTEMA DE CALIFICACIÓN"));
-
-        ADS.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        tblEvaluaciones.setModel(this.modelo);
-        jScrollPane10.setViewportView(tblEvaluaciones);
-
-        javax.swing.GroupLayout ADSLayout = new javax.swing.GroupLayout(ADS);
-        ADS.setLayout(ADSLayout);
-        ADSLayout.setHorizontalGroup(
-            ADSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ADSLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane10)
-                .addContainerGap())
-        );
-        ADSLayout.setVerticalGroup(
-            ADSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
-        );
-
-        txtPromedioFinal.setEditable(false);
-        txtPromedioFinal.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-
-        jLabel20.setText("Promedio final =");
+        pn5.setBorder(javax.swing.BorderFactory.createTitledBorder("SISTEMA DE EVALUACIÓN Y CALIFICACIÓN"));
 
         btnSiguiente5.setText("Siguiente");
         btnSiguiente5.addActionListener(new java.awt.event.ActionListener() {
@@ -1044,10 +1028,20 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             }
         });
 
-        btnAgregarEvaluacion.setText("Agregar");
-        btnAgregarEvaluacion.addActionListener(new java.awt.event.ActionListener() {
+        panSistemaCalificación.setBorder(javax.swing.BorderFactory.createTitledBorder("VIII. Sistema de Calificación"));
+
+        tblCalifición.setModel(this.modelo);
+        scpTablaCalificación.setViewportView(tblCalifición);
+
+        jLabel20.setText("Promedio final =");
+
+        txtPromedioFinal.setEditable(false);
+        txtPromedioFinal.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+
+        btnGenerarFormula.setText("Generar Formula");
+        btnGenerarFormula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarEvaluacionActionPerformed(evt);
+                btnGenerarFormulaActionPerformed(evt);
             }
         });
 
@@ -1058,61 +1052,107 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             }
         });
 
-        btnGenerarFormula.setText("Generar Formula");
-        btnGenerarFormula.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarEvaluacion.setText("Agregar");
+        btnAgregarEvaluacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerarFormulaActionPerformed(evt);
+                btnAgregarEvaluacionActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout panSistemaCalificaciónLayout = new javax.swing.GroupLayout(panSistemaCalificación);
+        panSistemaCalificación.setLayout(panSistemaCalificaciónLayout);
+        panSistemaCalificaciónLayout.setHorizontalGroup(
+            panSistemaCalificaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panSistemaCalificaciónLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panSistemaCalificaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panSistemaCalificaciónLayout.createSequentialGroup()
+                        .addComponent(scpTablaCalificación)
+                        .addGap(18, 18, 18))
+                    .addGroup(panSistemaCalificaciónLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPromedioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(panSistemaCalificaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarEvaluacion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGenerarFormula))
+                .addGap(15, 15, 15))
+        );
+        panSistemaCalificaciónLayout.setVerticalGroup(
+            panSistemaCalificaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panSistemaCalificaciónLayout.createSequentialGroup()
+                .addGroup(panSistemaCalificaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panSistemaCalificaciónLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(scpTablaCalificación, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+                    .addGroup(panSistemaCalificaciónLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(btnAgregarEvaluacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)))
+                .addGroup(panSistemaCalificaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(txtPromedioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGenerarFormula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
+        );
+
+        panSistemaEvaluación.setBorder(javax.swing.BorderFactory.createTitledBorder("VII. Sistema de Evaluación"));
+
+        jTable1.setModel(this.modeloEvaluacion);
+        scpEvaluación.setViewportView(jTable1);
+
+        javax.swing.GroupLayout panSistemaEvaluaciónLayout = new javax.swing.GroupLayout(panSistemaEvaluación);
+        panSistemaEvaluación.setLayout(panSistemaEvaluaciónLayout);
+        panSistemaEvaluaciónLayout.setHorizontalGroup(
+            panSistemaEvaluaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panSistemaEvaluaciónLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scpEvaluación, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panSistemaEvaluaciónLayout.setVerticalGroup(
+            panSistemaEvaluaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panSistemaEvaluaciónLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scpEvaluación, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout pn5Layout = new javax.swing.GroupLayout(pn5);
         pn5.setLayout(pn5Layout);
         pn5Layout.setHorizontalGroup(
             pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn5Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel20)
-                .addGap(29, 29, 29)
-                .addComponent(txtPromedioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnGenerarFormula)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pn5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ADS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pn5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAgregarEvaluacion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAnterior5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSiguiente5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
+            .addGroup(pn5Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panSistemaEvaluación, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panSistemaCalificación, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         pn5Layout.setVerticalGroup(
             pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn5Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(ADS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addContainerGap()
+                .addComponent(panSistemaEvaluación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panSistemaCalificación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
                 .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregarEvaluacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPromedioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20)
-                    .addComponent(btnGenerarFormula, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(203, 203, 203)
-                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSiguiente5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAnterior5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(btnAnterior5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSiguiente5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         pn8.addTab("Pagina 5", pn5);
@@ -1166,11 +1206,11 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addGap(40, 40, 40)
                 .addComponent(lbl11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(lbl12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1217,7 +1257,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn6Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                 .addGap(34, 34, 34)
                 .addGroup(pn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn6Layout.createSequentialGroup()
@@ -1302,13 +1342,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn7Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                 .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pn7Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(scplan, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
+                        .addComponent(scplan, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
                         .addGap(88, 88, 88))
                     .addGroup(pn7Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1378,7 +1418,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblBienvenida)
                 .addGap(51, 51, 51)
@@ -1404,7 +1444,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 796, Short.MAX_VALUE)
+            .addGap(0, 822, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(jPanel2);
@@ -1422,7 +1462,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 805, Short.MAX_VALUE)
                     .addComponent(pn8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1444,6 +1484,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     private void btnSiguiente4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguiente4ActionPerformed
         this.pn8.setSelectedIndex(4);
+        if(unidadesLis != null){
+            modeloEvaluacion.setUnidades(unidadesLis);
+        }
     }//GEN-LAST:event_btnSiguiente4ActionPerformed
 
     private void btnAnterior4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnterior4ActionPerformed
@@ -1525,11 +1568,11 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     private void btnMostrarUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarUnidadActionPerformed
 
-        this.panUnidades.setEnabled(true);
-        this.jscUnidad.setEnabled(true);
+        this.panUnidadesDetallada.setEnabled(true);
+        this.scpUniddadesDetallada.setEnabled(true);
         this.lblUnidades.setEnabled(true);
         this.cmbUMostrarUnidades.setEnabled(true);
-        this.tblUnidades.setEnabled(true);
+        this.tblUnidadesDetalladas.setEnabled(true);
 
         this.modeloComboUnidad.setUnidad(unidadesLis);
         this.cmbUMostrarUnidades.setModel(modeloComboUnidad);
@@ -1541,7 +1584,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private void cmbUMostrarUnidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbUMostrarUnidadesActionPerformed
         cmbUMostrarUnidades.addActionListener(e -> {
             mostrarDatosDeUnidadSeleccionada();
-            this.tblUnidades.setModel(modeloUnidad);
+            this.tblUnidadesDetalladas.setModel(modeloUnidad);
         });
     }//GEN-LAST:event_cmbUMostrarUnidadesActionPerformed
 
@@ -1569,6 +1612,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if (plan == true) {
+
             this.scplan.setEnabled(true);
             this.tblPlan.setEnabled(true);
             this.plan = false;
@@ -1583,7 +1627,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         EvaluacionesCalificadas eval;
-        int fila = this.tblEvaluaciones.getSelectedRow();
+        int fila = this.tblCalifición.getSelectedRow();
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "Selecciona una fila para modificar");
             return;
@@ -1598,8 +1642,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnGenerarFormulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarFormulaActionPerformed
-        if (this.validarSumaGlobalPesos(this.tblEvaluaciones) == true) {
-            actualizarFormulaPromedio(this.tblEvaluaciones, this.txtPromedioFinal);
+        if (this.validarSumaGlobalPesos(this.tblCalifición) == true) {
+            actualizarFormulaPromedio(this.tblCalifición, this.txtPromedioFinal);
         } else {
             this.btnModificar.requestFocusInWindow();
         }
@@ -1649,7 +1693,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel ADS;
     private javax.swing.JTextArea atxCapacidadCurso;
     private javax.swing.JTextArea atxCompetenciaProfesional;
     private javax.swing.JTextArea axtDesempeños;
@@ -1704,7 +1747,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
@@ -1717,10 +1759,10 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea10;
     private javax.swing.JTextField jTextField1;
     private com.toedter.calendar.JDateChooser jdcFechaInicio;
-    private javax.swing.JScrollPane jscUnidad;
     private javax.swing.JLabel lbl11;
     private javax.swing.JLabel lbl12;
     private javax.swing.JLabel lblBienvenida;
@@ -1743,7 +1785,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblUnidades;
     private javax.swing.JLabel lblUniversidad;
     private javax.swing.JPanel panDetallado;
-    private javax.swing.JPanel panUnidades;
+    private javax.swing.JPanel panSistemaCalificación;
+    private javax.swing.JPanel panSistemaEvaluación;
+    private javax.swing.JPanel panUnidadesDetallada;
     private javax.swing.JPanel pn1;
     private javax.swing.JPanel pn2;
     private javax.swing.JPanel pn3;
@@ -1752,12 +1796,15 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pn6;
     private javax.swing.JPanel pn7;
     private javax.swing.JTabbedPane pn8;
+    private javax.swing.JScrollPane scpEvaluación;
+    private javax.swing.JScrollPane scpTablaCalificación;
+    private javax.swing.JScrollPane scpUniddadesDetallada;
     private javax.swing.JScrollPane scplan;
     private javax.swing.JSpinner spDuración;
+    private javax.swing.JTable tblCalifición;
     private javax.swing.JTable tblDesempeñosUnidades;
-    private javax.swing.JTable tblEvaluaciones;
     private javax.swing.JTable tblPlan;
-    private javax.swing.JTable tblUnidades;
+    private javax.swing.JTable tblUnidadesDetalladas;
     private javax.swing.JTextArea txaMetodologiaEnseñanza;
     private javax.swing.JTextArea txaReferencias;
     private javax.swing.JTextField txtCodigoCurso;
@@ -1833,25 +1880,14 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     public void mostrarDatosDeUnidadSeleccionada() {
 
         int index = cmbUMostrarUnidades.getSelectedIndex();
-        List<Unidad> unidadesDisponibles = modeloComboUnidad.getUnidad(); // ✅ asegúrate que este método existe
-
-        if (index >= 0 && unidadesDisponibles != null && index < unidadesDisponibles.size()) {
-            Unidad seleccionada = unidadesDisponibles.get(index);
-
-            if (seleccionada != null && seleccionada.getHabilidadesRequeridas() != null && !seleccionada.getHabilidadesRequeridas().isEmpty()) {
-                modeloUnidad.setUnidades(List.of(seleccionada));
-                tblUnidades.setModel(modeloUnidad); // 🔑 vuelve a vincular el modelo
-                return;
-            }
-        }
-
-        modeloUnidad.setUnidades(new ArrayList<>());
-        tblUnidades.setModel(modeloUnidad); // 🔁 importante aunque esté vacío
+        Unidad uni;
+        uni = unidadesLis.get(index);
+        modeloUnidad.setUnidad(uni); // 🔁 importante aunque esté vacío
     }
 
     public boolean validarSumaGlobalPesos(JTable tabla) {
         String mensaje = "";
-        TableModel modelo = this.tblEvaluaciones.getModel();
+        TableModel modelo = this.tblCalifición.getModel();
         double sumaPesos = 0;
 
         for (int i = 0; i < modelo.getRowCount(); i++) {
@@ -1871,7 +1907,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     public void actualizarFormulaPromedio(JTable tabla, JTextField campoFormula) {
         StringBuilder formula = new StringBuilder();
-        TableModel modelo = this.tblEvaluaciones.getModel();
+        TableModel modelo = this.tblCalifición.getModel();
 
         for (int i = 0; i < modelo.getRowCount(); i++) {
             String sigla = modelo.getValueAt(i, 1).toString(); // Asumiendo columna 1 = Siglas
@@ -1916,8 +1952,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     }
 
     private void configurarTablaUnidadMultilinea() {
-        tblUnidades.setModel(modeloUnidad);
-        tblUnidades.getColumnModel().getColumn(0).setCellRenderer(new TableCellRenderer() {
+        tblUnidadesDetalladas.setModel(modeloUnidad);
+        tblUnidadesDetalladas.getColumnModel().getColumn(0).setCellRenderer(new TableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value,
                     boolean isSelected, boolean hasFocus, int row, int column) {
@@ -1937,7 +1973,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 return area;
             }
         });
-        tblUnidades.setRowHeight(60);
+        tblUnidadesDetalladas.setRowHeight(60);
 
     }
 

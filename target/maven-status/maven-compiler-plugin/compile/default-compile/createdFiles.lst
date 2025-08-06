@@ -53,6 +53,7 @@ GUI\JICrearSilabo$20.class
 GUI\JICrearSilabo$4.class
 GUI\JFCrearCuenta$8.class
 GUI\JFDatosCompletarRegistro.class
+GUI\modelos\UnidadDetalladaTableModel.class
 GUI\JFUnidades$7.class
 GUI\JFDatosCompletarRegistro$5.class
 GUI\JFUnidades$15.class
@@ -93,8 +94,9 @@ GUI\JFDatosCompletarRegistro$1.class
 GUI\JICrearSilabo$2.class
 GUI\JICuenta$4.class
 GUI\JFLogeo$3.class
-GUI\modelos\UnidadTableModel.class
+GUI\modelos\TableModelStandar.class
 GUI\JFDatosCompletarRegistro$8.class
+GUI\JFUnidades$18.class
 GUI\JICrearSilabo$11.class
 GUI\JFDatosCompletarRegistro$2.class
 GUI\JFSilabo$6.class
@@ -107,6 +109,7 @@ GUI\JICrearSilabo$3.class
 GUI\JDCrearSilabo$3.class
 GUI\JDConfirmacionCambioDatos.class
 GUI\JICrearSilabo$17.class
+GUI\modelos\TablaEvaluacionModel.class
 GUI\JDCrearSilabo$6$1.class
 GUI\JFUnidades$12.class
 GUI\JFUnidades$4.class

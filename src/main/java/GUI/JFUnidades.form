@@ -71,6 +71,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAcepetarEditarActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="panConfiguracionHabilidades">
       <Properties>
@@ -608,7 +611,13 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btnGuardarHabilidades" min="-2" pref="91" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnGuardarHabilidades" alignment="1" min="-2" pref="91" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="lblIndicadorSemanas" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -622,7 +631,9 @@
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="btnGuardarHabilidades" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Component id="lblIndicadorSemanas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -845,6 +856,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarHabilidadesActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblIndicadorSemanas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="      "/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
