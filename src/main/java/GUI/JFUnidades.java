@@ -522,8 +522,12 @@ public class JFUnidades extends javax.swing.JFrame {
         lblSemanas.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lblSemanas.setText("Semanas: ");
 
+<<<<<<< Updated upstream
         spCantidadSemanas.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         spCantidadSemanas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 4, 1));
+=======
+        spCantidadSemanas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 18, 1));
+>>>>>>> Stashed changes
         spCantidadSemanas.setEnabled(false);
 
         javax.swing.GroupLayout panHabilidadLayout = new javax.swing.GroupLayout(panHabilidad);
@@ -1127,10 +1131,6 @@ public class JFUnidades extends javax.swing.JFrame {
             objEvi.setTipoEvidencia(cmbTipoEvidencia.getSelectedItem().toString());
             this.semanaSeleccionada.setEvidenciasAprendizaje(objEvi);
             asignasemanallenaHabilidad();
-            for (Semana object : habilidadSeleccionada.getSemanas()) {
-                System.out.println(object.getConocimiento());
-            }
-
         }
     }
 

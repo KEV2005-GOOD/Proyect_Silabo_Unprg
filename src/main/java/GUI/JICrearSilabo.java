@@ -211,7 +211,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         btnAgregarEvaluacion = new javax.swing.JButton();
         panSistemaEvaluación = new javax.swing.JPanel();
         scpEvaluación = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblSistemaDeCalificación = new javax.swing.JTable();
         pn6 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
         txaMetodologiaEnseñanza = new javax.swing.JTextArea();
@@ -1067,7 +1067,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panSistemaCalificaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panSistemaCalificaciónLayout.createSequentialGroup()
-                        .addComponent(scpTablaCalificación)
+                        .addComponent(scpTablaCalificación, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
                         .addGap(18, 18, 18))
                     .addGroup(panSistemaCalificaciónLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -1094,7 +1094,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                         .addComponent(btnAgregarEvaluacion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)))
                 .addGroup(panSistemaCalificaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(txtPromedioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1104,8 +1104,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         panSistemaEvaluación.setBorder(javax.swing.BorderFactory.createTitledBorder("VII. Sistema de Evaluación"));
 
-        jTable1.setModel(this.modeloEvaluacion);
-        scpEvaluación.setViewportView(jTable1);
+        tblSistemaDeCalificación.setModel(this.modeloEvaluacion);
+        scpEvaluación.setViewportView(tblSistemaDeCalificación);
 
         javax.swing.GroupLayout panSistemaEvaluaciónLayout = new javax.swing.GroupLayout(panSistemaEvaluación);
         panSistemaEvaluación.setLayout(panSistemaEvaluaciónLayout);
@@ -1113,7 +1113,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             panSistemaEvaluaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panSistemaEvaluaciónLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scpEvaluación, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
+                .addComponent(scpEvaluación)
                 .addContainerGap())
         );
         panSistemaEvaluaciónLayout.setVerticalGroup(
@@ -1129,26 +1129,24 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         pn5Layout.setHorizontalGroup(
             pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAnterior5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSiguiente5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panSistemaCalificación, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panSistemaEvaluación, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pn5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnAnterior5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSiguiente5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(16, 16, 16))
-            .addGroup(pn5Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panSistemaEvaluación, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panSistemaCalificación, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(29, Short.MAX_VALUE))
         );
         pn5Layout.setVerticalGroup(
             pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn5Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(panSistemaEvaluación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panSistemaCalificación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addGap(18, 18, 18)
                 .addGroup(pn5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAnterior5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSiguiente5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1484,9 +1482,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     private void btnSiguiente4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguiente4ActionPerformed
         this.pn8.setSelectedIndex(4);
-        if(unidadesLis != null){
-            modeloEvaluacion.setUnidades(unidadesLis);
-        }
+        System.out.println("si llego");
+        modeloEvaluacion.setUnidad(unidadesLis);
     }//GEN-LAST:event_btnSiguiente4ActionPerformed
 
     private void btnAnterior4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnterior4ActionPerformed
@@ -1759,7 +1756,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea10;
     private javax.swing.JTextField jTextField1;
     private com.toedter.calendar.JDateChooser jdcFechaInicio;
@@ -1804,6 +1800,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblCalifición;
     private javax.swing.JTable tblDesempeñosUnidades;
     private javax.swing.JTable tblPlan;
+    private javax.swing.JTable tblSistemaDeCalificación;
     private javax.swing.JTable tblUnidadesDetalladas;
     private javax.swing.JTextArea txaMetodologiaEnseñanza;
     private javax.swing.JTextArea txaReferencias;
@@ -1878,11 +1875,12 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     }
 
     public void mostrarDatosDeUnidadSeleccionada() {
-
         int index = cmbUMostrarUnidades.getSelectedIndex();
-        Unidad uni;
-        uni = unidadesLis.get(index);
-        modeloUnidad.setUnidad(uni); // 🔁 importante aunque esté vacío
+        if (index >= 0) {
+            Unidad uni;
+            uni = unidadesLis.get(index);
+            modeloUnidad.setUnidad(uni);
+        }
     }
 
     public boolean validarSumaGlobalPesos(JTable tabla) {
@@ -1891,7 +1889,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         double sumaPesos = 0;
 
         for (int i = 0; i < modelo.getRowCount(); i++) {
-            Object pesoObj = modelo.getValueAt(i, 2); // Columna 2: Peso
+            Object pesoObj = modelo.getValueAt(i, 2);
             if (pesoObj != null) {
                 sumaPesos += Double.parseDouble(pesoObj.toString());
             }

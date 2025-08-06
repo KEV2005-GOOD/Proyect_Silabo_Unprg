@@ -6,6 +6,8 @@ import entidades.Semana;
 import entidades.EvidenciaAprendizaje;
 
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UnidadDetalladaTableModel extends AbstractTableModel {
 
@@ -15,20 +17,48 @@ public class UnidadDetalladaTableModel extends AbstractTableModel {
         "Desempeño", "Habilidad", "Semana", "Conocimiento", "Actividad", "Evidencia", "Instrumento"
     };
 
+    private final List<Object[]> filas = new ArrayList<>();
+
     public void setUnidad(Unidad unidad) {
         this.unidad = unidad;
+        cargarFilas();
         fireTableDataChanged();
+    }
+
+    private void cargarFilas() {
+        filas.clear();
+        if (unidad == null || unidad.getHabilidadesRequeridas() == null) {
+            return;
+        }
+
+        String desempeño = unidad.getDesempeño();
+
+        for (HabilidadRequerida habilidad : unidad.getHabilidadesRequeridas()) {
+            String nombreHabilidad = habilidad.getHabilidad();
+
+            for (int i = 0; i < habilidad.getSemanas().size(); i++) {
+                Semana semana = habilidad.getSemanas().get(i);
+                EvidenciaAprendizaje evidencia = semana.getEvidenciasAprendizaje();
+
+                filas.add(new Object[]{
+                    desempeño,
+                    nombreHabilidad,
+                    semana.getNumeroSemana(),
+                    semana.getConocimiento(),
+                    semana.getActividadAprendizaje(),
+                    evidencia != null ? evidencia.getTipoEvidencia() + ": " + evidencia.getEvidencia() : "",
+                    evidencia != null ? evidencia.getInstrumentoEvaluacion() : ""
+                });
+
+                desempeño = "";
+                nombreHabilidad = "";
+            }
+        }
     }
 
     @Override
     public int getRowCount() {
-        if (unidad == null || unidad.getHabilidadesRequeridas() == null) {
-            return 0;
-        }
-
-        return unidad.getHabilidadesRequeridas().stream()
-                .mapToInt(h -> h.getSemanas() != null ? h.getSemanas().size() : 0)
-                .sum();
+        return filas.size();
     }
 
     @Override
@@ -43,39 +73,7 @@ public class UnidadDetalladaTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        if (unidad == null) {
-            return "";
-        }
-
-        int contador = 0;
-        for (HabilidadRequerida habilidad : unidad.getHabilidadesRequeridas()) {
-            for (Semana semana : habilidad.getSemanas()) {
-                if (contador == rowIndex) {
-                    EvidenciaAprendizaje evidencia = semana.getEvidenciasAprendizaje();
-                    return switch (columnIndex) {
-                        case 0 ->
-                            unidad.getDesempeño();
-                        case 1 ->
-                            habilidad.getHabilidad();
-                        case 2 ->
-                            semana.getNumeroSemana();
-                        case 3 ->
-                            semana.getConocimiento();
-                        case 4 ->
-                            semana.getActividadAprendizaje();
-                        case 5 ->
-                            evidencia != null ? evidencia.getEvidencia() : "";
-                        case 6 ->
-                            evidencia != null ? evidencia.getInstrumentoEvaluacion() : "";
-                        default ->
-                            "";
-                    };
-                }
-                contador++;
-            }
-        }
-
-        return "";
+        return filas.get(rowIndex)[columnIndex];
     }
 
     @Override
