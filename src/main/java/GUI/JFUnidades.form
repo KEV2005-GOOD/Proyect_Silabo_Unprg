@@ -28,9 +28,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btnAcepetarEditar" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAcepetarEditar" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="bntCancelar" min="-2" max="-2" attributes="0"/>
+                      <Component id="bntCancelar" min="-2" pref="120" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -53,8 +53,8 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="bntCancelar" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAcepetarEditar" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="bntCancelar" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="btnAcepetarEditar" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
@@ -64,11 +64,17 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="bntCancelar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnAcepetarEditar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="15" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
       </Properties>
       <Events>
@@ -83,6 +89,7 @@
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                 <BevelBorder/>
               </Border>
+              <Font PropertyName="font" name="Segoe UI" size="15" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -95,29 +102,29 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblUnidadConfig" min="-2" pref="49" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="cmbUnidadConfig" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnConfigurarSemana" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="panSemana" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblNombreHabilidad" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="cmbHabilidadesConfig" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="btnConfigurarSemana" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="lblUnidadConfig" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cmbUnidadConfig" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="panSemana" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnModificarLasHabilidades" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Component id="lblSemanasConfig" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="cmbSemana" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="btnModificarLasHabilidades" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -131,25 +138,25 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cmbUnidadConfig" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbUnidadConfig" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="lblUnidadConfig" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblNombreHabilidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbHabilidadesConfig" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbHabilidadesConfig" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblSemanasConfig" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbSemana" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbSemana" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  <Component id="btnConfigurarSemana" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="btnConfigurarSemana" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="panSemana" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btnModificarLasHabilidades" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnModificarLasHabilidades" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -158,12 +165,18 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblNombreHabilidad">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Habilidad: "/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbHabilidadesConfig">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="this.modeloComboHabilidad" type="code"/>
             </Property>
@@ -178,12 +191,18 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblUnidadConfig">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Unidad: "/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbUnidadConfig">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="this.modeloComboUnidadConfig" type="code"/>
             </Property>
@@ -198,6 +217,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblSemanasConfig">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Semana: "/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -210,6 +232,7 @@
                   <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                     <EtchetBorder/>
                   </Border>
+                  <Font PropertyName="font" name="Segoe UI" size="15" style="2"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -257,18 +280,18 @@
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="cmbTipoEvidencia" max="32767" attributes="0"/>
+                                      <Component id="cmbTipoEvidencia" pref="320" max="32767" attributes="0"/>
                                       <EmptySpace min="207" pref="207" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="scpEvidencia" alignment="0" pref="536" max="32767" attributes="0"/>
-                                  <Component id="scpInstrumentoEvaluación" alignment="0" pref="536" max="32767" attributes="0"/>
+                                  <Component id="scpEvidencia" alignment="0" pref="527" max="32767" attributes="0"/>
+                                  <Component id="scpInstrumentoEvaluación" alignment="0" pref="527" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnGuardarSemana" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnGuardarSemana" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="btnCancelarConfiguraciónSemana" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCancelarConfiguraciónSemana" min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -281,36 +304,36 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="scpConocimiento" pref="49" max="32767" attributes="0"/>
+                              <Component id="scpConocimiento" pref="64" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="lblConocimiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblConocimiento" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblActividadEvidenciaAprendizaje" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="scpActividadesAprendizaje" alignment="0" pref="51" max="32767" attributes="0"/>
+                          <Component id="lblActividadEvidenciaAprendizaje" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="scpActividadesAprendizaje" alignment="0" pref="67" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="lblActividadAprendizaje" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblActividadAprendizaje" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblTipoEvidencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmbTipoEvidencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblTipoEvidencia" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="cmbTipoEvidencia" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblEvidencia" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="scpEvidencia" alignment="0" pref="50" max="32767" attributes="0"/>
+                          <Component id="lblEvidencia" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="scpEvidencia" min="-2" pref="55" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="scpInstrumentoEvaluación" alignment="0" pref="51" max="32767" attributes="0"/>
-                          <Component id="lblInstrumentoEvaluación" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblInstrumentoEvaluación" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="scpInstrumentoEvaluación" min="-2" pref="55" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnGuardarSemana" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnCancelarConfiguraciónSemana" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGuardarSemana" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="btnCancelarConfiguraciónSemana" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
@@ -320,6 +343,9 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblConocimiento">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="15" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Conocimiento: "/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -339,6 +365,9 @@
             </Container>
             <Component class="javax.swing.JLabel" name="lblActividadEvidenciaAprendizaje">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="15" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Actividad de aprendizaje: "/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -358,18 +387,27 @@
             </Container>
             <Component class="javax.swing.JLabel" name="lblActividadAprendizaje">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="15" style="1"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="EVIDENCIA APRENDIZAJE: "/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTipoEvidencia">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="15" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Tipo de Evidencia: "/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="cmbTipoEvidencia">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="15" style="1"/>
+                </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="15">
                     <StringItem index="0" value="Ex&#xe1;menes"/>
@@ -398,6 +436,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblEvidencia">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="15" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Evidencia: "/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -417,6 +458,9 @@
             </Container>
             <Component class="javax.swing.JLabel" name="lblInstrumentoEvaluaci&#xf3;n">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="15" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Instrumento Evaluaci&#xf3;n:"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -436,6 +480,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="btnGuardarSemana">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="15" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -445,6 +492,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnCancelarConfiguraci&#xf3;nSemana">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="15" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cancelar"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
@@ -456,6 +506,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="btnConfigurarSemana">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Configurar"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -465,6 +518,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnModificarLasHabilidades">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Modificar Habilidades"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -474,6 +530,9 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="cmbSemana">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="this.modeloSemanas" type="code"/>
             </Property>
@@ -496,6 +555,7 @@
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
                 <BevelBorder/>
               </Border>
+              <Font PropertyName="font" name="Segoe UI" size="15" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -512,13 +572,16 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="scpDesempeñoEsperado" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblUnidad" min="-2" pref="49" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="cmbUnidad" pref="652" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="btnConfigurarHabilidades" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="panAgregarHabilidad" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="lblUnidad" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cmbUnidad" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="btnConfigurarHabilidades" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
@@ -528,19 +591,22 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cmbUnidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblUnidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="cmbUnidad" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                          <Component id="lblUnidad" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblDesempeñoEsperado" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblDesempeñoEsperado" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="scpDesempeñoEsperado" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Component id="panAgregarHabilidad" max="32767" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="btnConfigurarHabilidades" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnConfigurarHabilidades" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -549,6 +615,9 @@
       <SubComponents>
         <Component class="javax.swing.JComboBox" name="cmbUnidad">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="this.modeloComboUnidad" type="code"/>
             </Property>
@@ -562,11 +631,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblUnidad">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Unidad: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDesempe&#xf1;oEsperado">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Desempe&#xf1;o Esperado:"/>
           </Properties>
         </Component>
@@ -595,6 +670,7 @@
                       </Border>
                     </TitledBorder>
                   </Border>
+                  <Font PropertyName="font" name="Segoe UI" size="15" style="1"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -612,7 +688,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnGuardarHabilidades" alignment="1" min="-2" pref="91" max="-2" attributes="0"/>
+                          <Component id="btnGuardarHabilidades" alignment="1" min="-2" pref="120" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lblIndicadorSemanas" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
@@ -630,7 +706,7 @@
                           <Component id="panListadoHabilidades" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="btnGuardarHabilidades" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnGuardarHabilidades" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Component id="lblIndicadorSemanas" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -647,6 +723,7 @@
                       <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                         <EtchetBorder/>
                       </Border>
+                      <Font PropertyName="font" name="Segoe UI" size="15" style="2"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -659,13 +736,13 @@
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="btnNuevaHabilidad" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnNuevaHabilidad" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="btnModificarHabilidad" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnModificarHabilidad" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="btnEliminarHabilidad" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEliminarHabilidad" min="-2" pref="120" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="scpTablaListado" pref="342" max="32767" attributes="0"/>
+                              <Component id="scpTablaListado" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       </Group>
@@ -678,9 +755,9 @@
                           <Component id="scpTablaListado" pref="0" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnModificarHabilidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnNuevaHabilidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnEliminarHabilidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnModificarHabilidad" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnNuevaHabilidad" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnEliminarHabilidad" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
@@ -706,6 +783,9 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnNuevaHabilidad">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="15" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Nuevo"/>
                   </Properties>
                   <Events>
@@ -714,6 +794,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnModificarHabilidad">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="15" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Modificar"/>
                   </Properties>
                   <Events>
@@ -722,6 +805,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEliminarHabilidad">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="15" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
                   </Properties>
                   <Events>
@@ -734,10 +820,11 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Habilidad">
+                    <TitledBorder title="Listado Habilidades">
                       <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                         <EtchetBorder/>
                       </Border>
+                      <Font PropertyName="font" name="Segoe UI" size="15" style="2"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -749,7 +836,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="scpHabilidad" alignment="0" pref="272" max="32767" attributes="0"/>
+                              <Component id="scpHabilidad" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="lblHabilidad" min="-2" max="-2" attributes="0"/>
@@ -760,16 +847,16 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnAceptarHabilidadNueva" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAceptarHabilidadNueva" min="-2" pref="120" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnCancelarHabilidad" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCancelarHabilidad" min="-2" pref="120" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblSemanas" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="spCantidadSemanas" min="-2" max="-2" attributes="0"/>
+                          <Component id="spCantidadSemanas" min="-2" pref="120" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -780,16 +867,16 @@
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="lblHabilidad" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                          <Component id="scpHabilidad" pref="169" max="32767" attributes="0"/>
+                          <Component id="scpHabilidad" pref="164" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblSemanas" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="spCantidadSemanas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="spCantidadSemanas" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnCancelarHabilidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnAceptarHabilidadNueva" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCancelarHabilidad" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnAceptarHabilidadNueva" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
@@ -799,6 +886,9 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="lblHabilidad">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="15" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Habilidad: "/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
@@ -818,6 +908,9 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnAceptarHabilidadNueva">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="15" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Aceptar"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
@@ -827,6 +920,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnCancelarHabilidad">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="15" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Cancelar"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
@@ -836,11 +932,17 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblSemanas">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="15" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Semanas: "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSpinner" name="spCantidadSemanas">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="15" style="1"/>
+                    </Property>
                     <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                       <SpinnerModel initial="1" maximum="4" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                     </Property>
@@ -851,6 +953,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="btnGuardarHabilidades">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="15" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
               <Events>
@@ -866,6 +971,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="btnConfigurarHabilidades">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Configurar habilidades"/>
           </Properties>
           <Events>
