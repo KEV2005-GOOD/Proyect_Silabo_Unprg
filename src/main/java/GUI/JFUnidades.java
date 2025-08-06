@@ -137,8 +137,10 @@ public class JFUnidades extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        bntCancelar.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         bntCancelar.setText("Cancelar");
 
+        btnAcepetarEditar.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnAcepetarEditar.setText("Aceptar");
         btnAcepetarEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,12 +148,14 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
-        panConfiguracionHabilidades.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Configurar Habilidades"));
+        panConfiguracionHabilidades.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Configurar Habilidades", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
         panConfiguracionHabilidades.setEnabled(false);
 
+        lblNombreHabilidad.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblNombreHabilidad.setText("Habilidad: ");
         lblNombreHabilidad.setEnabled(false);
 
+        cmbHabilidadesConfig.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         cmbHabilidadesConfig.setModel(this.modeloComboHabilidad);
         cmbHabilidadesConfig.setEnabled(false);
         cmbHabilidadesConfig.addActionListener(new java.awt.event.ActionListener() {
@@ -160,9 +164,11 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
+        lblUnidadConfig.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblUnidadConfig.setText("Unidad: ");
         lblUnidadConfig.setEnabled(false);
 
+        cmbUnidadConfig.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         cmbUnidadConfig.setModel(this.modeloComboUnidadConfig);
         cmbUnidadConfig.setEnabled(false);
         cmbUnidadConfig.addActionListener(new java.awt.event.ActionListener() {
@@ -171,12 +177,14 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
+        lblSemanasConfig.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblSemanasConfig.setText("Semana: ");
         lblSemanasConfig.setEnabled(false);
 
-        panSemana.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Semana"));
+        panSemana.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Semana", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 2, 15))); // NOI18N
         panSemana.setEnabled(false);
 
+        lblConocimiento.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lblConocimiento.setText("Conocimiento: ");
         lblConocimiento.setEnabled(false);
 
@@ -185,6 +193,7 @@ public class JFUnidades extends javax.swing.JFrame {
         txaConocimiento.setEnabled(false);
         scpConocimiento.setViewportView(txaConocimiento);
 
+        lblActividadEvidenciaAprendizaje.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lblActividadEvidenciaAprendizaje.setText("Actividad de aprendizaje: ");
         lblActividadEvidenciaAprendizaje.setEnabled(false);
 
@@ -193,16 +202,20 @@ public class JFUnidades extends javax.swing.JFrame {
         txaActividadesDeAprendizaje.setEnabled(false);
         scpActividadesAprendizaje.setViewportView(txaActividadesDeAprendizaje);
 
+        lblActividadAprendizaje.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblActividadAprendizaje.setText("EVIDENCIA APRENDIZAJE: ");
         lblActividadAprendizaje.setEnabled(false);
 
+        lblTipoEvidencia.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lblTipoEvidencia.setText("Tipo de Evidencia: ");
         lblTipoEvidencia.setEnabled(false);
 
+        cmbTipoEvidencia.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         cmbTipoEvidencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Exámenes", "Trabajos Escritos", "Presentaciones Orales ", "Proyectos", "Portafolios", "Pruebas Prácticas", "Observaciones Conductuales", "Entrevistas de Competencias", "Autoevaluaciones y Diarios de Aprendizaje", "Informes de Progreso", "Comentarios y Retroalimentación", "Creaciones Artísticas", "Maquetas y Prototipos", "Videojuegos y Aplicaciones Digitales", "Cuadernos de Notas y Bitácoras" }));
         cmbTipoEvidencia.setSelectedIndex(-1);
         cmbTipoEvidencia.setEnabled(false);
 
+        lblEvidencia.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lblEvidencia.setText("Evidencia: ");
         lblEvidencia.setEnabled(false);
 
@@ -211,6 +224,7 @@ public class JFUnidades extends javax.swing.JFrame {
         txaEvidencia.setEnabled(false);
         scpEvidencia.setViewportView(txaEvidencia);
 
+        lblInstrumentoEvaluación.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lblInstrumentoEvaluación.setText("Instrumento Evaluación:");
         lblInstrumentoEvaluación.setEnabled(false);
 
@@ -219,6 +233,7 @@ public class JFUnidades extends javax.swing.JFrame {
         txaInstrumentoEvaluación.setEnabled(false);
         scpInstrumentoEvaluación.setViewportView(txaInstrumentoEvaluación);
 
+        btnGuardarSemana.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnGuardarSemana.setText("Guardar");
         btnGuardarSemana.setEnabled(false);
         btnGuardarSemana.addActionListener(new java.awt.event.ActionListener() {
@@ -227,6 +242,7 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
+        btnCancelarConfiguraciónSemana.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnCancelarConfiguraciónSemana.setText("Cancelar");
         btnCancelarConfiguraciónSemana.setEnabled(false);
         btnCancelarConfiguraciónSemana.addActionListener(new java.awt.event.ActionListener() {
@@ -268,15 +284,15 @@ public class JFUnidades extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(panSemanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panSemanaLayout.createSequentialGroup()
-                                .addComponent(cmbTipoEvidencia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbTipoEvidencia, 0, 320, Short.MAX_VALUE)
                                 .addGap(207, 207, 207))
-                            .addComponent(scpEvidencia, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
-                            .addComponent(scpInstrumentoEvaluación, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)))
+                            .addComponent(scpEvidencia, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
+                            .addComponent(scpInstrumentoEvaluación, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panSemanaLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnGuardarSemana)
+                        .addComponent(btnGuardarSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
-                        .addComponent(btnCancelarConfiguraciónSemana)))
+                        .addComponent(btnCancelarConfiguraciónSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         panSemanaLayout.setVerticalGroup(
@@ -285,33 +301,34 @@ public class JFUnidades extends javax.swing.JFrame {
                 .addGroup(panSemanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panSemanaLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(scpConocimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
-                    .addComponent(lblConocimiento))
+                        .addComponent(scpConocimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE))
+                    .addComponent(lblConocimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panSemanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblActividadEvidenciaAprendizaje)
-                    .addComponent(scpActividadesAprendizaje, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
+                    .addComponent(lblActividadEvidenciaAprendizaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scpActividadesAprendizaje, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
                 .addGap(23, 23, 23)
-                .addComponent(lblActividadAprendizaje)
+                .addComponent(lblActividadAprendizaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addGroup(panSemanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTipoEvidencia)
-                    .addComponent(cmbTipoEvidencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblTipoEvidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTipoEvidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panSemanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEvidencia)
-                    .addComponent(scpEvidencia, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
-                .addGap(27, 27, 27)
+                    .addComponent(lblEvidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scpEvidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panSemanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scpInstrumentoEvaluación, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-                    .addComponent(lblInstrumentoEvaluación))
-                .addGap(47, 47, 47)
+                    .addComponent(lblInstrumentoEvaluación, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scpInstrumentoEvaluación, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panSemanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGuardarSemana)
-                    .addComponent(btnCancelarConfiguraciónSemana))
+                    .addComponent(btnGuardarSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelarConfiguraciónSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
 
+        btnConfigurarSemana.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnConfigurarSemana.setText("Configurar");
         btnConfigurarSemana.setEnabled(false);
         btnConfigurarSemana.addActionListener(new java.awt.event.ActionListener() {
@@ -320,6 +337,7 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
+        btnModificarLasHabilidades.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnModificarLasHabilidades.setText("Modificar Habilidades");
         btnModificarLasHabilidades.setEnabled(false);
         btnModificarLasHabilidades.addActionListener(new java.awt.event.ActionListener() {
@@ -328,6 +346,7 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
+        cmbSemana.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         cmbSemana.setModel(this.modeloSemanas);
         cmbSemana.setEnabled(false);
         cmbSemana.addActionListener(new java.awt.event.ActionListener() {
@@ -343,25 +362,25 @@ public class JFUnidades extends javax.swing.JFrame {
             .addGroup(panConfiguracionHabilidadesLayout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(panConfiguracionHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panConfiguracionHabilidadesLayout.createSequentialGroup()
-                        .addComponent(lblUnidadConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbUnidadConfig, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panConfiguracionHabilidadesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnConfigurarSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panSemana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panConfiguracionHabilidadesLayout.createSequentialGroup()
                         .addComponent(lblNombreHabilidad)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbHabilidadesConfig, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panConfiguracionHabilidadesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnConfigurarSemana))
-                    .addComponent(panSemana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panConfiguracionHabilidadesLayout.createSequentialGroup()
+                        .addComponent(lblUnidadConfig)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbUnidadConfig, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panConfiguracionHabilidadesLayout.createSequentialGroup()
                         .addGroup(panConfiguracionHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnModificarLasHabilidades)
                             .addGroup(panConfiguracionHabilidadesLayout.createSequentialGroup()
                                 .addComponent(lblSemanasConfig)
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cmbSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnModificarLasHabilidades))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -370,27 +389,28 @@ public class JFUnidades extends javax.swing.JFrame {
             .addGroup(panConfiguracionHabilidadesLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(panConfiguracionHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbUnidadConfig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbUnidadConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUnidadConfig))
                 .addGap(18, 18, 18)
                 .addGroup(panConfiguracionHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreHabilidad)
-                    .addComponent(cmbHabilidadesConfig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(cmbHabilidadesConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(panConfiguracionHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSemanasConfig)
-                    .addComponent(cmbSemana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
-                .addComponent(btnConfigurarSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConfigurarSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panSemana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnModificarLasHabilidades)
+                .addComponent(btnModificarLasHabilidades, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7))
         );
 
-        panRegistroDeHabilidades.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Registro Habilidades"));
+        panRegistroDeHabilidades.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Registro Habilidades", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
 
+        cmbUnidad.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         cmbUnidad.setModel(this.modeloComboUnidad);
         cmbUnidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,8 +418,10 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
+        lblUnidad.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblUnidad.setText("Unidad: ");
 
+        lblDesempeñoEsperado.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         lblDesempeñoEsperado.setText("Desempeño Esperado:");
 
         txaDesempeñoEsperado.setEditable(false);
@@ -407,13 +429,14 @@ public class JFUnidades extends javax.swing.JFrame {
         txaDesempeñoEsperado.setRows(5);
         scpDesempeñoEsperado.setViewportView(txaDesempeñoEsperado);
 
-        panAgregarHabilidad.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Agregamos habilidades"), "Agregamos la habilidad Requerida"));
+        panAgregarHabilidad.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "Agregamos habilidades"), "Agregamos la habilidad Requerida", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 15))); // NOI18N
 
-        panListadoHabilidades.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Listado Habilidades"));
+        panListadoHabilidades.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Listado Habilidades", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 2, 15))); // NOI18N
 
         tblListado.setModel(this.listadoHabilidadesRequeridas);
         scpTablaListado.setViewportView(tblListado);
 
+        btnNuevaHabilidad.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnNuevaHabilidad.setText("Nuevo");
         btnNuevaHabilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -421,6 +444,7 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
+        btnModificarHabilidad.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnModificarHabilidad.setText("Modificar");
         btnModificarHabilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -428,6 +452,7 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
+        btnEliminarHabilidad.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnEliminarHabilidad.setText("Eliminar");
         btnEliminarHabilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -443,12 +468,12 @@ public class JFUnidades extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panListadoHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panListadoHabilidadesLayout.createSequentialGroup()
-                        .addComponent(btnNuevaHabilidad)
+                        .addComponent(btnNuevaHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnModificarHabilidad)
+                        .addComponent(btnModificarHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminarHabilidad))
-                    .addComponent(scpTablaListado, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE))
+                        .addComponent(btnEliminarHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scpTablaListado, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(9, 9, 9))
         );
         panListadoHabilidadesLayout.setVerticalGroup(
@@ -458,15 +483,16 @@ public class JFUnidades extends javax.swing.JFrame {
                 .addComponent(scpTablaListado, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panListadoHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificarHabilidad)
-                    .addComponent(btnNuevaHabilidad)
-                    .addComponent(btnEliminarHabilidad))
+                    .addComponent(btnModificarHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNuevaHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminarHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44))
         );
 
-        panHabilidad.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Habilidad"));
+        panHabilidad.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Listado Habilidades", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 2, 15))); // NOI18N
         panHabilidad.setEnabled(false);
 
+        lblHabilidad.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lblHabilidad.setText("Habilidad: ");
         lblHabilidad.setEnabled(false);
 
@@ -475,6 +501,7 @@ public class JFUnidades extends javax.swing.JFrame {
         txaHabilidad.setEnabled(false);
         scpHabilidad.setViewportView(txaHabilidad);
 
+        btnAceptarHabilidadNueva.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnAceptarHabilidadNueva.setText("Aceptar");
         btnAceptarHabilidadNueva.setEnabled(false);
         btnAceptarHabilidadNueva.addActionListener(new java.awt.event.ActionListener() {
@@ -483,6 +510,7 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
+        btnCancelarHabilidad.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnCancelarHabilidad.setText("Cancelar");
         btnCancelarHabilidad.setEnabled(false);
         btnCancelarHabilidad.addActionListener(new java.awt.event.ActionListener() {
@@ -491,9 +519,11 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
+        lblSemanas.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         lblSemanas.setText("Semanas: ");
 
-        spCantidadSemanas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 18, 1));
+        spCantidadSemanas.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        spCantidadSemanas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 4, 1));
         spCantidadSemanas.setEnabled(false);
 
         javax.swing.GroupLayout panHabilidadLayout = new javax.swing.GroupLayout(panHabilidad);
@@ -502,7 +532,7 @@ public class JFUnidades extends javax.swing.JFrame {
             panHabilidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panHabilidadLayout.createSequentialGroup()
                 .addGroup(panHabilidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scpHabilidad, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                    .addComponent(scpHabilidad)
                     .addGroup(panHabilidadLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblHabilidad)
@@ -510,15 +540,15 @@ public class JFUnidades extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(panHabilidadLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAceptarHabilidadNueva)
+                .addComponent(btnAceptarHabilidadNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCancelarHabilidad)
+                .addComponent(btnCancelarHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13))
             .addGroup(panHabilidadLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblSemanas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(spCantidadSemanas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spCantidadSemanas, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panHabilidadLayout.setVerticalGroup(
@@ -527,18 +557,19 @@ public class JFUnidades extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(lblHabilidad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scpHabilidad, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addComponent(scpHabilidad, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panHabilidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSemanas)
-                    .addComponent(spCantidadSemanas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spCantidadSemanas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
                 .addGroup(panHabilidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelarHabilidad)
-                    .addComponent(btnAceptarHabilidadNueva))
+                    .addComponent(btnCancelarHabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAceptarHabilidadNueva, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
 
+        btnGuardarHabilidades.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnGuardarHabilidades.setText("Guardar");
         btnGuardarHabilidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -560,7 +591,7 @@ public class JFUnidades extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panAgregarHabilidadLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panAgregarHabilidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGuardarHabilidades, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardarHabilidades, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panAgregarHabilidadLayout.createSequentialGroup()
                         .addComponent(lblIndicadorSemanas)
                         .addGap(232, 232, 232))))
@@ -573,12 +604,13 @@ public class JFUnidades extends javax.swing.JFrame {
                     .addComponent(panHabilidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panListadoHabilidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(28, 28, 28)
-                .addComponent(btnGuardarHabilidades)
+                .addComponent(btnGuardarHabilidades, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17)
                 .addComponent(lblIndicadorSemanas)
                 .addContainerGap())
         );
 
+        btnConfigurarHabilidades.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         btnConfigurarHabilidades.setText("Configurar habilidades");
         btnConfigurarHabilidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -597,29 +629,33 @@ public class JFUnidades extends javax.swing.JFrame {
                         .addComponent(lblDesempeñoEsperado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(scpDesempeñoEsperado))
-                    .addGroup(panRegistroDeHabilidadesLayout.createSequentialGroup()
-                        .addComponent(lblUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panAgregarHabilidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panRegistroDeHabilidadesLayout.createSequentialGroup()
+                        .addComponent(lblUnidad)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbUnidad, 0, 652, Short.MAX_VALUE))
-                    .addComponent(btnConfigurarHabilidades, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panAgregarHabilidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(cmbUnidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panRegistroDeHabilidadesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnConfigurarHabilidades)))
                 .addContainerGap())
         );
         panRegistroDeHabilidadesLayout.setVerticalGroup(
             panRegistroDeHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panRegistroDeHabilidadesLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(panRegistroDeHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUnidad))
+                .addGroup(panRegistroDeHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmbUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panRegistroDeHabilidadesLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(lblUnidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(panRegistroDeHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDesempeñoEsperado)
+                    .addComponent(lblDesempeñoEsperado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(scpDesempeñoEsperado, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(panAgregarHabilidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConfigurarHabilidades)
+                .addComponent(btnConfigurarHabilidades, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -632,9 +668,9 @@ public class JFUnidades extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAcepetarEditar)
+                        .addComponent(btnAcepetarEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
-                        .addComponent(bntCancelar)
+                        .addComponent(bntCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panRegistroDeHabilidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -651,8 +687,8 @@ public class JFUnidades extends javax.swing.JFrame {
                     .addComponent(panConfiguracionHabilidades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bntCancelar)
-                    .addComponent(btnAcepetarEditar))
+                    .addComponent(bntCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAcepetarEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
 
@@ -1091,6 +1127,10 @@ public class JFUnidades extends javax.swing.JFrame {
             objEvi.setTipoEvidencia(cmbTipoEvidencia.getSelectedItem().toString());
             this.semanaSeleccionada.setEvidenciasAprendizaje(objEvi);
             asignasemanallenaHabilidad();
+            for (Semana object : habilidadSeleccionada.getSemanas()) {
+                System.out.println(object.getConocimiento());
+            }
+
         }
     }
 
