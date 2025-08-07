@@ -1617,7 +1617,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if (plan == true) {
-
             this.scplan.setEnabled(true);
             this.tblPlan.setEnabled(true);
             this.plan = false;
@@ -1626,21 +1625,16 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             this.tblPlan.setEnabled(false);
             this.plan = true;
         }
-
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
 
         int fila = this.tblCalifición.getSelectedRow();
-
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "Selecciona una fila para eliminar", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;
         }
-
         EvaluacionesCalificadas seleccionada = modeloCalificación.getCalificaciones().get(fila);
-
         int opcion = JOptionPane.showConfirmDialog(null,
                 "¿Estás seguro de que deseas eliminar la evaluación \"" + seleccionada.getNombreEvaluacion() + "\"?",
                 "Confirmar eliminación",

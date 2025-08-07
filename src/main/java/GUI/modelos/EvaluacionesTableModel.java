@@ -72,7 +72,7 @@ public class EvaluacionesTableModel extends AbstractTableModel {
         };
     }
 
-    // Método para aplicar renderers personalizados a una JTable
+
     public void configurarTablaVisual(JTable tabla) {
         tabla.setRowHeight(28);
         tabla.setFillsViewportHeight(true);
@@ -82,11 +82,11 @@ public class EvaluacionesTableModel extends AbstractTableModel {
         DefaultTableCellRenderer centrado = new DefaultTableCellRenderer();
         centrado.setHorizontalAlignment(SwingConstants.CENTER);
 
-        tabla.getColumnModel().getColumn(1).setCellRenderer(centrado); // Siglas
-        tabla.getColumnModel().getColumn(2).setCellRenderer(new RendererPeso()); // Peso
+        tabla.getColumnModel().getColumn(1).setCellRenderer(centrado);
+        tabla.getColumnModel().getColumn(2).setCellRenderer(new RendererPeso()); 
     }
 
-    // Renderer interno para la columna de peso
+  
     private static class RendererPeso extends DefaultTableCellRenderer {
 
         @Override
