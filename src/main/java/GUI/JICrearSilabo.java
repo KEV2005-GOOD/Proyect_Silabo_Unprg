@@ -7,6 +7,22 @@ import GUI.modelos.EvaluacionesTableModel;
 import GUI.modelos.TablaEvaluacionModel;
 import GUI.modelos.UnidadComboModel;
 import GUI.modelos.UnidadDetalladaTableModel;
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.colors.ColorConstants;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.borders.Border;
+import com.itextpdf.layout.borders.SolidBorder;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.ListItem;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.property.HorizontalAlignment;
+import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
+import com.itextpdf.layout.property.VerticalAlignment;
 import entidades.Ciclo;
 import entidades.Curso;
 import entidades.DepartamentoAcademico;
@@ -23,6 +39,7 @@ import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import java.awt.Component;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -159,9 +176,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         lblCreditos = new javax.swing.JLabel();
         txtCreditos = new javax.swing.JTextField();
         lblSemestreAcademico = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        spSemestreAnio = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cboSemestre = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         bntSiguiente1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -469,13 +486,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         lblSemestreAcademico.setText("Semestre academico:");
 
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(2025, 2025, null, 1));
-        jSpinner1.setEditor(new javax.swing.JSpinner.NumberEditor(jSpinner1, "0"));
+        spSemestreAnio.setModel(new javax.swing.SpinnerNumberModel(2025, 2025, null, 1));
+        spSemestreAnio.setEditor(new javax.swing.JSpinner.NumberEditor(spSemestreAnio, "0"));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("-");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "I", "II", "III" }));
+        cboSemestre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "I", "II", "III" }));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -489,11 +506,11 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblSemestreAcademico)
                 .addGap(18, 18, 18)
-                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(spSemestreAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cboSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addComponent(lblCreditos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -510,9 +527,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                     .addComponent(lblSemestreAcademico, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCodigoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCreditos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spSemestreAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -1725,13 +1742,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSiguiente5;
     private javax.swing.JButton btnSiguiente6;
     private javax.swing.JButton btnSiguiente7;
+    private javax.swing.JComboBox<String> cboSemestre;
     private javax.swing.JComboBox<String> cmbCiclos;
     private javax.swing.JComboBox<String> cmbCursos;
     private javax.swing.JComboBox<String> cmbUMostrarUnidades;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel16;
@@ -1764,7 +1781,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextArea jTextArea10;
     private javax.swing.JTextField jTextField1;
     private com.toedter.calendar.JDateChooser jdcFechaInicio;
@@ -1806,6 +1822,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane scpUniddadesDetallada;
     private javax.swing.JScrollPane scplan;
     private javax.swing.JSpinner spDuración;
+    private javax.swing.JSpinner spSemestreAnio;
     private javax.swing.JTable tblCalifición;
     private javax.swing.JTable tblDesempeñosUnidades;
     private javax.swing.JTable tblPlan;
@@ -2034,6 +2051,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         silabo.setSemanas((String) spDuración.getValue());
         silabo.setFechaInicio(FechaInicio);
         silabo.setFechaFin(FechaFin);
+        silabo.setSemestreAcademico(this.spSemestreAnio.getValue() + this.cboSemestre.getSelectedItem().toString());
         String mensaje = "";
         mensaje += txaMetodologiaEnseñanza.getText() + "\n";
         if (detallado == true) {
@@ -2046,8 +2064,195 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
         marshaller.marshal(silabo, new FileWriter("SilaboGenadao.xml"));
-        // justto esto se crea en file los archivos del programa
 
+        JICrearSilabo.generarPDFSilabo(silabo);
     }
 
+    private static void generarPDFSilabo(Silabo silabus) throws IOException {
+        final String RUTA ="";
+        final String RUTAESCUDOPEDRO = "src/main/resources/logo_unprg.png";
+        final String RUTAESCUDOFACFYM = "src/main/resources/EscudoFACFYM.jpg";
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+
+        if (silabus != null) {
+            PdfWriter writer = new PdfWriter(RUTA);
+            PdfDocument pdf = new PdfDocument(writer);
+            Document documento = new Document(pdf);
+
+            Image escudoPedro = new Image(ImageDataFactory.create(RUTAESCUDOPEDRO)).setWidth(60);
+            Image escudoFACFYM = new Image(ImageDataFactory.create(RUTAESCUDOFACFYM)).setWidth(60);
+
+            Paragraph espacioBlanco = new Paragraph("\n");
+
+            Table encabezado = new Table(UnitValue.createPercentArray(new float[]{1, 4, 1}))
+                    .useAllAvailableWidth()
+                    .setBorder(Border.NO_BORDER);
+            // Celda izquierda (logo universidad)
+            encabezado.addCell(new Cell().add(escudoPedro)
+                    .setTextAlignment(TextAlignment.CENTER)
+                    .setBorder(Border.NO_BORDER));
+
+            // Celda central (texto institucional)
+            Paragraph textoCentral = new Paragraph("UNIVERSIDAD NACIONAL “PEDRO RUIZ GALLO”\n"
+                    + "Facultad de Ciencias Físicas y Matemáticas\n"
+                    + "ESCUELA PROFESIONAL DE INGENIERÍA EN COMPUTACIÓN E INFORMÁTICA\n"
+                    + "Departamento Académico de Computación y Electrónica")
+                    .setTextAlignment(TextAlignment.CENTER)
+                    .setFontSize(12)
+                    .setBold();
+            encabezado.addCell(new Cell().add(textoCentral)
+                    .setTextAlignment(TextAlignment.CENTER)
+                    .setBorder(Border.NO_BORDER));
+
+            // Celda derecha (logo facultad)
+            encabezado.addCell(new Cell().add(escudoFACFYM)
+                    .setTextAlignment(TextAlignment.CENTER)
+                    .setBorder(Border.NO_BORDER));
+
+            documento.add(encabezado);
+            documento.add(espacioBlanco);
+            
+            // Crear párrafo con el texto
+            Paragraph tituloCuadro = new Paragraph(silabus.getCurso().getNombre()).add("\nSECCION")
+                    .setTextAlignment(TextAlignment.CENTER)
+                    .setFontSize(10)
+                    .setBold()
+                    .setMargin(5);
+            // Crear celda con fondo gris y borde negro
+            Cell celdaCuadro = new Cell()
+                    .add(tituloCuadro)
+                    .setBackgroundColor(ColorConstants.LIGHT_GRAY)
+                    .setBorder(new SolidBorder(ColorConstants.BLACK, 1))
+                    .setTextAlignment(TextAlignment.CENTER)
+                    .setVerticalAlignment(VerticalAlignment.MIDDLE);
+
+            // Crear tabla de una sola celda para controlar el ancho
+            Table cuadro = new Table(1).setWidth(UnitValue.createPointValue(400)).setHeight(UnitValue.createPointValue(50)) // ajusta el ancho aquí
+                    .setHorizontalAlignment(HorizontalAlignment.CENTER) // centra el cuadro
+                    .addCell(celdaCuadro);
+            // Crear la lista sin símbolo y con fuente tamaño 10
+            com.itextpdf.layout.element.List listInformacionGeneral = new com.itextpdf.layout.element.List()
+                    .setSymbolIndent(12)
+                    .setListSymbol("")
+                    .setFontSize(10);
+
+            documento.add(cuadro);
+
+            Paragraph tituloInformacionGeneral = new Paragraph("\n\nI. Informacion General").setFontSize(10).setBold().setMarginLeft(20);
+
+            documento.add(tituloInformacionGeneral);
+
+            int horasTotales = silabus.getCurso().getHorasPracticasSemanales() + silabus.getCurso().getHorasTeoricaSemanales();
+            // Agregar los ítems con sangría
+            listInformacionGeneral
+                    .add(new ListItem("1.1 Programa de estudios:    " + silabus.getEscuela().getNombre()
+                    )).setMarginLeft(40)
+                    .add(new ListItem("1.2 Escuela Profesional:     " + silabus.getEscuela().getNombre())).setMarginLeft(40)
+                    .add(new ListItem("1.3 Modalidad: Presencial    ")).setMarginLeft(40)
+                    .add(new ListItem("1.4 Curso:   " + silabus.getCurso().getNombre())).setMarginLeft(40)
+                    .add(new ListItem("1.5 Prerrequisito:   " + silabus.getCurso().getPrerrequisitos())).setMarginLeft(40)
+                    .add(new ListItem("1.6 Código del curso:    " + silabus.getCurso().getCodigoCurso())).setMarginLeft(40)
+                    .add(new ListItem("1.7 Semestre Académico:      " + silabus.getSemestreAcademico())).setMarginLeft(40)
+                    .add(new ListItem("1.8 Periodo Académico: " + String.valueOf(silabus.getCurso().getCicloEstudio()) + " Ciclo")).setMarginLeft(40)
+                    .add(new ListItem("1.9 Créditos: " + silabus.getCurso().getCreditos())).setMarginLeft(40)
+                    .add(new ListItem("1.10 Horas Semanales: " + String.valueOf(horasTotales))).setMarginLeft(40)
+                    .add(new ListItem(" Teoria: " + String.valueOf(silabus.getCurso().getHorasTeoricaSemanales()))).setMarginLeft(80)
+                    .add(new ListItem(" Practica: " + String.valueOf(silabus.getCurso().getHorasPracticasSemanales()))).setMarginLeft(80)
+                    .add(new ListItem(" Practica: " + String.valueOf(silabus.getCurso().getHorasPracticasSemanales()))).setMarginLeft(80)
+                    .add(new ListItem("1.11 Duracion: " + silabus.getSemanas())).setMarginLeft(40)
+                    .add(new ListItem("Fecha de Inicio:  " + formato.format(silabus.getFechaInicio()))).setMarginLeft(40)
+                    .add(new ListItem("Fecha de Fin:  " + formato.format(silabus.getFechaFin()))).setMarginLeft(40)
+                    .add(new ListItem("1.12 Docente: " + silabus.getDocente().getFullName())).setMarginLeft(40)
+                    .add(new ListItem(silabus.getDocente().getCorreo())).setMarginLeft(60);
+
+            documento.add(listInformacionGeneral);
+
+            Paragraph tituloSumilla = new Paragraph("\n\nII. Sumilla").setFontSize(10).setBold().setMarginLeft(20);
+
+            documento.add(tituloSumilla);
+
+            Paragraph textoSumilla = new Paragraph(silabus.getCurso().getSumilla());
+            textoSumilla.setTextAlignment(TextAlignment.JUSTIFIED_ALL);
+            textoSumilla.setTextAlignment(TextAlignment.LEFT);
+            textoSumilla.setFontSize(10);
+            textoSumilla.setPaddingLeft(20);
+            textoSumilla.setPaddingBottom(-20);
+
+            documento.add(textoSumilla);
+
+            Paragraph tituloCompetenciaProfesional = new Paragraph("\n\nIII. Competencia Profesional").setFontSize(10).setBold().setMarginLeft(20);
+
+            documento.add(tituloCompetenciaProfesional);
+
+            Paragraph textoCompetenciaProfesional = new Paragraph(silabus.getCurso().getCompetenciaProfesional());
+            textoCompetenciaProfesional.setTextAlignment(TextAlignment.LEFT);
+            textoCompetenciaProfesional.setFontSize(10);
+            textoCompetenciaProfesional.setPaddingLeft(20);
+            textoCompetenciaProfesional.setPaddingBottom(0);
+
+            documento.add(textoCompetenciaProfesional);
+
+            Paragraph tituloCapacidadDelCurso = new Paragraph("\n\nIV. Capacidad del Curso").setFontSize(10).setBold().setMarginLeft(20);
+
+            documento.add(tituloCapacidadDelCurso);
+
+            Paragraph textoCapacidadDelCurso = new Paragraph(silabus.getCurso().getCapacidadDelCurso());
+            textoCapacidadDelCurso.setTextAlignment(TextAlignment.LEFT);
+            textoCapacidadDelCurso.setFontSize(10);
+            textoCapacidadDelCurso.setPaddingLeft(20);
+            textoCapacidadDelCurso.setPaddingBottom(-25);
+
+            documento.add(textoCapacidadDelCurso);
+
+            Paragraph tituloDesepenioUD = new Paragraph("\n\nV. Desempeño de las Unidades Didacticas").setFontSize(10).setBold().setMarginLeft(20);
+            documento.add(tituloDesepenioUD);
+            for (int i = 0; i < silabus.getCurso().getDesempeños().size(); i++) {
+                Paragraph textoDesempenio = new Paragraph("D" + String.valueOf(i) + ": " + silabus.getCurso().getDesempeños().get(i).getDesempeño());
+                textoDesempenio.setTextAlignment(TextAlignment.LEFT);
+                textoDesempenio.setFontSize(10);
+                textoDesempenio.setPaddingLeft(20);
+                textoDesempenio.setPaddingBottom(0);
+                textoDesempenio.setBold();
+                documento.add(textoDesempenio);
+            }
+
+            Paragraph tituloMetodologiaEnseñanza = new Paragraph("\n\nIX. Metodologia de Enseñanza-Aprendizaje y Actividades de Investigacion").setFontSize(10).setBold().setMarginLeft(20);
+            documento.add(tituloMetodologiaEnseñanza);
+
+            Paragraph textoMetodologiaEnsenianza = new Paragraph(silabus.getMetodologiaEnseñanza());
+            textoMetodologiaEnsenianza.setTextAlignment(TextAlignment.JUSTIFIED_ALL);
+            textoMetodologiaEnsenianza.setTextAlignment(TextAlignment.LEFT);
+            textoMetodologiaEnsenianza.setFontSize(10);
+            textoMetodologiaEnsenianza.setPaddingLeft(20);
+            textoMetodologiaEnsenianza.setPaddingBottom(-20);
+
+            documento.add(textoMetodologiaEnsenianza);
+
+            Paragraph tituloActividadesTutoria = new Paragraph("\n\nX. Actividades de tutoria: Area Academica").setFontSize(10).setBold().setMarginLeft(20);
+            documento.add(tituloActividadesTutoria);
+
+            Paragraph textoActividadesTutoria = new Paragraph(silabus.getMetodologiaEnseñanza());
+            textoActividadesTutoria.setTextAlignment(TextAlignment.JUSTIFIED_ALL);
+            textoActividadesTutoria.setTextAlignment(TextAlignment.LEFT);
+            textoActividadesTutoria.setFontSize(10);
+            textoActividadesTutoria.setPaddingLeft(20);
+            textoActividadesTutoria.setPaddingBottom(-20);
+
+            documento.add(textoActividadesTutoria);
+
+            Paragraph tituloReferencias = new Paragraph("\n\nXI. Referencias").setFontSize(10).setBold().setMarginLeft(20);
+
+            documento.add(tituloReferencias);
+
+            Paragraph textoReferencias = new Paragraph(silabus.getMetodologiaEnseñanza());
+            textoReferencias.setTextAlignment(TextAlignment.JUSTIFIED_ALL);
+            textoReferencias.setTextAlignment(TextAlignment.LEFT);
+            textoReferencias.setFontSize(10);
+            textoReferencias.setPaddingLeft(20);
+            textoReferencias.setPaddingBottom(-20);
+
+            documento.add(textoReferencias);
+            documento.close();
+        }
+    }
 }

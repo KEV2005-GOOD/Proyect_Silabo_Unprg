@@ -689,11 +689,11 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblSemestreAcademico" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jSpinner1" min="-2" pref="75" max="-2" attributes="0"/>
+                              <Component id="spSemestreAnio" min="-2" pref="75" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" pref="14" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBox1" min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="cboSemestre" min="-2" pref="43" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                               <Component id="lblCreditos" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -712,9 +712,9 @@
                                   <Component id="lblSemestreAcademico" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="lblCodigoCurso" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="lblCreditos" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spSemestreAnio" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cboSemestre" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -761,7 +761,7 @@
                         <Property name="text" type="java.lang.String" value="Semestre academico:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JSpinner" name="jSpinner1">
+                    <Component class="javax.swing.JSpinner" name="spSemestreAnio">
                       <Properties>
                         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                           <SpinnerModel initial="2025" minimum="2025" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -779,7 +779,7 @@
                         <Property name="text" type="java.lang.String" value="-"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                    <Component class="javax.swing.JComboBox" name="cboSemestre">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="3">

@@ -91,6 +91,6 @@ public class Docente {
     }
 
     public String getFullName() {
-        return "Docente{" + "nombres=" + nombres + ", Apellidos=" + Apellidos + '}';
+        return   nombres +" "+  Apellidos;
     }
 }

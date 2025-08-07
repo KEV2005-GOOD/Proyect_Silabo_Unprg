@@ -15,11 +15,12 @@ public class Silabo {
     private String MetodologiaEnseñanza;
     private String actividadesAuditorias;
     private String fuentesReferenciales;
+    private String semestreAcademico;
 
     public Silabo() {
     }
 
-    public Silabo(Facultad facultad, DepartamentoAcademico departamento, Escuela escuela, Curso curso, Docente docente, String Semanas, Date FechaInicio, Date FechaFin, String MetodologiaEnseñanza, String actividadesAuditorias, String fuentesReferenciales) {
+    public Silabo(Facultad facultad, DepartamentoAcademico departamento, Escuela escuela, Curso curso, Docente docente, String Semanas, Date FechaInicio, Date FechaFin, String MetodologiaEnseñanza, String actividadesAuditorias, String fuentesReferenciales, String semestreAcademico) {
         this.facultad = facultad;
         this.departamento = departamento;
         this.escuela = escuela;
@@ -31,9 +32,18 @@ public class Silabo {
         this.MetodologiaEnseñanza = MetodologiaEnseñanza;
         this.actividadesAuditorias = actividadesAuditorias;
         this.fuentesReferenciales = fuentesReferenciales;
+        this.semestreAcademico = semestreAcademico;
     }
+
     
     
+    public String getSemestreAcademico() {
+        return semestreAcademico;
+    }
+
+    public void setSemestreAcademico(String semestreAcademico) {
+        this.semestreAcademico = semestreAcademico;
+    }
 
     public Date getFechaFin() {
         return FechaFin;
