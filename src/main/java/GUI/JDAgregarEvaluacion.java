@@ -7,6 +7,7 @@ import entidades.Semana;
 import entidades.Unidad;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class JDAgregarEvaluacion extends javax.swing.JDialog {
 
@@ -16,6 +17,7 @@ public class JDAgregarEvaluacion extends javax.swing.JDialog {
     private static List<Unidad> unidadeslis;
     private modeloComboEvidencia modeloCombo = new modeloComboEvidencia();
     private static int podi;
+    private static List<Semana> semanasDisponibles = new ArrayList<>();
 
     public JDAgregarEvaluacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -178,7 +180,15 @@ public class JDAgregarEvaluacion extends javax.swing.JDialog {
     }//GEN-LAST:event_cmbCronogramaActionPerformed
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        this.dispose();
+        if (validar() == true) {
+            // Crear la evaluación con los datos seleccionados
+            String evidenciaSeleccionada = (String) cmbEvidencia.getSelectedItem();
+            if (evidenciaSeleccionada != null) {
+                cargarDatos(evidenciaSeleccionada);
+            }
+
+            this.dispose();
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
@@ -233,24 +243,55 @@ public class JDAgregarEvaluacion extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void cargarEvaluacion() {
+        // Limpiar listas anteriores
+        cob.clear();
+        semanasDisponibles.clear();
+
         for (Unidad unidad : unidadeslis) {
             if (unidad.getHabilidadesRequeridas() != null) {
                 for (HabilidadRequerida habilidad : unidad.getHabilidadesRequeridas()) {
                     if (habilidad.getSemanas() != null) {
                         for (Semana semana : habilidad.getSemanas()) {
+                            // Agregar semana a la lista si no existe ya
+                            boolean semanaExiste = semanasDisponibles.stream()
+                                    .anyMatch(s -> s.getNumeroSemana() == semana.getNumeroSemana());
+                            if (!semanaExiste) {
+                                semanasDisponibles.add(semana);
+                            }
+
                             if (semana.getEvidenciasAprendizaje() != null) {
                                 String tipo = semana.getEvidenciasAprendizaje().getTipoEvidencia();
                                 if (!cob.contains(tipo)) {
                                     cob.add(tipo);
                                 }
-
                             }
                         }
                     }
                 }
             }
         }
+
+        // Ordenar semanas por número
+        semanasDisponibles.sort((s1, s2) -> Integer.compare(s1.getNumeroSemana(), s2.getNumeroSemana()));
+
+        // Cargar combo de cronograma con semanas reales
+        cargarComboCronograma();
+
+        cmbEvidencia.setSelectedIndex(-1);
+        cmbCronograma.setSelectedIndex(-1);
         modeloCombo.setNombres(cob);
+    }
+
+    private void cargarComboCronograma() {
+        // Crear modelo para el combo de cronograma
+        String[] opcionesCronograma = new String[semanasDisponibles.size() + 1];
+        opcionesCronograma[0] = "Constantemente";
+
+        for (int i = 0; i < semanasDisponibles.size(); i++) {
+            opcionesCronograma[i + 1] = "Semana " + semanasDisponibles.get(i).getNumeroSemana();
+        }
+
+        cmbCronograma.setModel(new javax.swing.DefaultComboBoxModel<>(opcionesCronograma));
     }
 
     private void cargarDatos(String dato) {
@@ -260,9 +301,29 @@ public class JDAgregarEvaluacion extends javax.swing.JDialog {
             eva.setNombreEvaluacion(dato);
             eva.setSiglasEvaluacion(txtSigla.getText());
             eva.setPeso((int) spPeso.getValue());
-            eva.setCronograma((String) cmbCronograma.getSelectedItem());
+
+            // Obtener cronograma seleccionado
+            String cronogramaSeleccionado = (String) cmbCronograma.getSelectedItem();
+            eva.setCronograma(cronogramaSeleccionado);
+
             evalucionReturn = eva;
         }
+    }
+
+    private boolean validar() {
+        // Validar que se haya seleccionado una evidencia
+        if (cmbEvidencia.getSelectedIndex() == -1) {
+            JOptionPane.showMessageDialog(null, "Por favor seleccione una evidencia de aprendizaje.");
+
+            return false;
+        }
+
+        if (cmbCronograma.getSelectedIndex() <= -1) {
+            JOptionPane.showMessageDialog(null, " \"Por favor seleccione un cronograma.");
+
+            return false;
+        }
+        return true;
     }
 
     public String obtenerIniciales(String frase) {

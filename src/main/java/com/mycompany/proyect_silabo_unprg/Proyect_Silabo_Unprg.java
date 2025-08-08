@@ -1,46 +1,26 @@
 package com.mycompany.proyect_silabo_unprg;
-
 import GUI.JFLogeo;
 import com.formdev.flatlaf.FlatLightLaf;
 import entidades.Docente;
-import entidades.Facultad;
 import entidades.Usuario;
-import Recursos.VersionesHandler;
 import java.awt.Color;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
+
 import org.jdesktop.swingx.prompt.PromptSupport;
 
 public class Proyect_Silabo_Unprg {
 
-    public static Facultad FACU;
     public static List<Usuario> usuarios = new ArrayList<>();
     public static List<Docente> docentes = new ArrayList<>();
 
-    public static void main(String[] args) throws UnsupportedLookAndFeelException {
+    public static void main(String[] args) throws UnsupportedLookAndFeelException{
         UIManager.setLookAndFeel(new FlatLightLaf());
-
-        try {
-            File archivoXML = new File("src/main/resources/BaseDeDatosSilabo.xml");
-            SAXParserFactory factory = SAXParserFactory.newInstance();
-            SAXParser parser = factory.newSAXParser();
-            VersionesHandler handler = new VersionesHandler();
-            parser.parse(archivoXML, handler);
-            Facultad facultad = handler.getFacultad();
-            FACU = facultad;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         JFLogeo logeo = new JFLogeo();
-
     }
 
     public static boolean validarPasswordDoble(JPasswordField pass1, JPasswordField pass2) {

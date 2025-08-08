@@ -24,6 +24,9 @@ public class JFSilabo extends javax.swing.JFrame {
     private Facultad facultad = null;
     private DepartamentoAcademico depa = null;
 
+    JICrearSilabo frmCrear = null;
+    JDCrearSilabo frm1 = null;
+
     private static Usuario userLogged;
 
     Usuario usuario;
@@ -206,29 +209,23 @@ public class JFSilabo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        JICrearSilabo frmCrear = null;
-        JDCrearSilabo frm1 = null;
-        limpiarDesktopPane(dpSilabo);
-        Silabo silabo;
-        if (frm1 == null) {
-            frm1 = new JDCrearSilabo(null, true);
-            silabo = frm1.agregar();
-            if (silabo.getEscuela() != null) {
+        if (frmCrear != null) {
+            frmCrear.setVisible(true);
+        } else {
+
+            Silabo sil;
+            frm1 = new JDCrearSilabo(this, rootPaneCheckingEnabled);
+            sil = frm1.agregar();
+            if (sil.getEscuela() != null) {
                 try {
-                    // Crear o reutilizar la ventana del silabo
-                    frmCrear = JICrearSilabo.crear(dpSilabo, silabo, userLogged);
+                    frmCrear = JICrearSilabo.crear(dpSilabo, sil, userLogged);
+                    frmCrear.setVisible(true);
                 } catch (IOException ex) {
                     Logger.getLogger(JFSilabo.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                if (frmCrear != null) {
-                    frmCrear.setVisible(true);
-                    try {
-                        frmCrear.setMaximum(true);
-                    } catch (Exception e) {
-                    }
-                }
             }
             frm1 = null;
+            frmCrear = null;
         }
     }//GEN-LAST:event_btnCrearActionPerformed
 

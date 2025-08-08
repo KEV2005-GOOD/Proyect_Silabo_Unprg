@@ -110,7 +110,6 @@ public class JFUnidades extends javax.swing.JFrame {
         btnConfigurarSemana = new javax.swing.JButton();
         btnModificarLasHabilidades = new javax.swing.JButton();
         cmbSemana = new javax.swing.JComboBox<>();
-        btnModificarSemana = new javax.swing.JButton();
         panRegistroDeHabilidades = new javax.swing.JPanel();
         cmbUnidad = new javax.swing.JComboBox<>();
         lblUnidad = new javax.swing.JLabel();
@@ -337,9 +336,6 @@ public class JFUnidades extends javax.swing.JFrame {
             }
         });
 
-        btnModificarSemana.setText("Modificar");
-        btnModificarSemana.setEnabled(false);
-
         javax.swing.GroupLayout panConfiguracionHabilidadesLayout = new javax.swing.GroupLayout(panConfiguracionHabilidades);
         panConfiguracionHabilidades.setLayout(panConfiguracionHabilidadesLayout);
         panConfiguracionHabilidadesLayout.setHorizontalGroup(
@@ -365,10 +361,8 @@ public class JFUnidades extends javax.swing.JFrame {
                             .addGroup(panConfiguracionHabilidadesLayout.createSequentialGroup()
                                 .addComponent(lblSemanasConfig)
                                 .addGap(18, 18, 18)
-                                .addComponent(cmbSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(btnModificarSemana)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(cmbSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 517, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panConfiguracionHabilidadesLayout.setVerticalGroup(
@@ -385,9 +379,8 @@ public class JFUnidades extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(panConfiguracionHabilidadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSemanasConfig)
-                    .addComponent(cmbSemana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnModificarSemana))
-                .addGap(13, 13, 13)
+                    .addComponent(cmbSemana, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
                 .addComponent(btnConfigurarSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panSemana, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -758,6 +751,9 @@ public class JFUnidades extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarConfiguraciónSemanaActionPerformed
 
     private void btnAcepetarEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcepetarEditarActionPerformed
+        if (rootPaneCheckingEnabled) {
+            
+        }
         this.dispose();
     }//GEN-LAST:event_btnAcepetarEditarActionPerformed
 
@@ -805,7 +801,6 @@ public class JFUnidades extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardarSemana;
     private javax.swing.JButton btnModificarHabilidad;
     private javax.swing.JButton btnModificarLasHabilidades;
-    private javax.swing.JButton btnModificarSemana;
     private javax.swing.JButton btnNuevaHabilidad;
     private javax.swing.JComboBox<String> cmbHabilidadesConfig;
     private javax.swing.JComboBox<String> cmbSemana;
@@ -1023,6 +1018,7 @@ public class JFUnidades extends javax.swing.JFrame {
         lblSemanasConfig.setEnabled(estado);
         cmbSemana.setEnabled(estado);
         btnConfigurarSemana.setEnabled(estado);
+        btnModificarHabilidad.setEnabled(estado);
         btnModificarLasHabilidades.setEnabled(estado);
 
         panRegistroDeHabilidades.setEnabled(!estado);

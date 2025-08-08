@@ -1,5 +1,6 @@
 package GUI;
 
+import Recursos.UsuarioServiceJAXB;
 import com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg;
 import static com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg.configurarCampoConPlaceholder;
 import entidades.Docente;
@@ -7,6 +8,7 @@ import entidades.Usuario;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -17,7 +19,6 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
     private BufferedImage firma; // variable global en la clase del formulario
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JFDatosCompletarRegistro.class.getName());
-
 
     public JFDatosCompletarRegistro(Usuario usuario) {
         initComponents();
@@ -30,7 +31,7 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
 
         actualizarProgreso();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -274,36 +275,60 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFinalizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizar1ActionPerformed
-        String dni = txtDni.getText().trim();
-        String nombres = txtNombres.getText().trim();
-        String apellidos = txtApellidos.getText().trim();
-        String grado = txtGrado.getText().trim();
-        String correo = txtCorreo.getText().trim();
-        
-        if (Proyect_Silabo_Unprg.validarCamposLlenos(txtNombres, txtApellidos, txtCorreo, txtDni, txtGrado) == false){
-            JOptionPane.showMessageDialog(this, "Debe completar todos los campos correctamente.", null, JOptionPane.WARNING_MESSAGE);
-            return;
+        if (validadDatos() == true) {
+
+            String dni = txtDni.getText().trim();
+            String nombres = txtNombres.getText().trim();
+            String apellidos = txtApellidos.getText().trim();
+            String grado = txtGrado.getText().trim();
+            String correo = txtCorreo.getText().trim();
+
+            if (Proyect_Silabo_Unprg.validarCamposLlenos(txtNombres, txtApellidos, txtCorreo, txtDni, txtGrado) == false) {
+                JOptionPane.showMessageDialog(this, "Debe completar todos los campos correctamente.", null, JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // La firma ahora es opcional - se puede registrar sin firma
+            Docente d = new Docente(nombres, apellidos, grado, dni, correo, grado);
+            usuarioRecibido.setDocente(d);
+
+            // Guardar en XML usando el servicio
+            UsuarioServiceJAXB servicioXml = new UsuarioServiceJAXB("src/main/resources/Usuarios.xml");
+            List<Usuario> usuariosXml = servicioXml.cargarUsuarios();
+
+            // Buscar y actualizar el usuario existente en el XML
+            boolean usuarioActualizado = false;
+            for (int i = 0; i < usuariosXml.size(); i++) {
+                Usuario u = usuariosXml.get(i);
+                if (u.getNombreUsuario().equals(usuarioRecibido.getNombreUsuario())) {
+                    usuariosXml.set(i, usuarioRecibido); // Reemplazar con los datos completos
+                    usuarioActualizado = true;
+                    break;
+                }
+            }
+
+            // Si no se encontró, agregarlo (por seguridad)
+            if (!usuarioActualizado) {
+                usuariosXml.add(usuarioRecibido);
+            }
+
+            // Guardar la lista actualizada en el XML
+            servicioXml.guardarUsuarios(usuariosXml);
+
+            // También mantener las listas en memoria para compatibilidad
+            Proyect_Silabo_Unprg.usuarios.add(usuarioRecibido);
+            Proyect_Silabo_Unprg.docentes.add(d);
+
+            // Mostrar en consola
+            System.out.println("==== REGISTRO COMPLETADO ====");
+            System.out.println(usuarioRecibido);
+            System.out.println("Datos guardados en XML correctamente");
+            System.out.println("================================");
+
+            JOptionPane.showMessageDialog(this, "Registro completado con éxito.\nDatos del docente guardados en el sistema.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            new JFLogeo().setVisible(true);
+            this.dispose();
         }
-        
-        if (firma == null) {
-            JOptionPane.showMessageDialog(this, "Debe subir una imagen de firma en formato PNG.", "Falta la firma", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        Docente d = new Docente(nombres, apellidos, grado, dni, correo, grado);
-        usuarioRecibido.setDocente(d);
-
-        Proyect_Silabo_Unprg.usuarios.add(usuarioRecibido);
-        Proyect_Silabo_Unprg.docentes.add(d);
-
-        // Mostrar en consola
-        System.out.println("==== REGISTRO COMPLETADO ====");
-        System.out.println(usuarioRecibido);
-        System.out.println("================================");
-
-        JOptionPane.showMessageDialog(this, "Registro completado con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        new JFLogeo().setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnFinalizar1ActionPerformed
 
     private void txtNombresKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombresKeyReleased
@@ -429,5 +454,31 @@ public class JFDatosCompletarRegistro extends javax.swing.JFrame {
 
         int porcentaje = (progreso * 100) / totalCampos;
         barraProgreso.setValue(porcentaje);
+    }
+
+    private boolean validadDatos() {
+        String msj = "";
+        if (!txtDni.getText().replaceAll("\\s+", "").trim().matches("\\d{8}")) {
+            msj += "DNI inválido.\n";
+            JOptionPane.showMessageDialog(null, msj);
+            return false;
+        }
+
+        if (!txtNombres.getText().matches("([A-Za-zÁÉÍÓÚáéíóúÑñ]+)( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*") || txtNombres.getText().length() < 2 || txtNombres.getText().length() > 50) {
+            msj += "Nombre inválido: solo letras y espacios\n";
+            JOptionPane.showMessageDialog(null, msj);
+            return false;
+        }
+        if (!txtApellidos.getText().matches("([A-Za-zÁÉÍÓÚáéíóúÑñ]+)( [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*") || txtApellidos.getText().length() < 2 || txtApellidos.getText().length() > 50) {
+            msj += "Apellido inválido: solo letras y espacios\n";
+            JOptionPane.showMessageDialog(null, msj);
+            return false;
+        }
+        if (!txtCorreo.getText().matches("^[\\w.-]+@unprg\\.edu\\.pe$")) {
+            JOptionPane.showMessageDialog(null, "Correo inválido: debe terminar en @unprg.edu.pe");
+            return false;
+        }
+
+        return true;
     }
 }

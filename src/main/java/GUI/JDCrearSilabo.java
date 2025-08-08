@@ -3,14 +3,18 @@ package GUI;
 import GUI.modelos.DepartamentoComboModel;
 import GUI.modelos.EscuelaComboModel;
 import GUI.modelos.FacultadComboModel;
-import com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg;
+import Recursos.VersionesHandler;
+
 import entidades.DepartamentoAcademico;
 import entidades.Escuela;
 import entidades.Facultad;
 import entidades.Silabo;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 public class JDCrearSilabo extends javax.swing.JDialog {
 
@@ -31,6 +35,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
     public JDCrearSilabo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        cargarPlan();
         setLocationRelativeTo(null);
         cargarFacultades();
     }
@@ -308,9 +313,7 @@ public class JDCrearSilabo extends javax.swing.JDialog {
         this.facultadesVigentes = new ArrayList<>();
         this.facultadesVigentes.clear();
 
-        if (Proyect_Silabo_Unprg.FACU != null) {
-            this.facultadesVigentes.add(Proyect_Silabo_Unprg.FACU);
-        }
+        this.facultadesVigentes.add(facultadSeleccionada);
 
         this.modeloFacultad.setFacultad(this.facultadesVigentes);
         this.cmbFacultad.setSelectedIndex(-1);
@@ -367,5 +370,21 @@ public class JDCrearSilabo extends javax.swing.JDialog {
             }
         }
         return false;
+    }
+
+    private void cargarPlan() {
+
+        try {
+            File archivoXML = new File("src/main/resources/BaseDeDatosSilabo.xml");
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser parser = factory.newSAXParser();
+            VersionesHandler handler = new VersionesHandler();
+            parser.parse(archivoXML, handler);
+            Facultad facultad = handler.getFacultad();
+            facultadSeleccionada = facultad;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

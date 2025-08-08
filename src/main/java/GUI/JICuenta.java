@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
+
 package GUI;
 
 import GUI.modelos.InicioTableModel;
@@ -27,7 +24,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
         setBorder(null);
-        
+
         // Configurar listener para limpiar referencia cuando se cierre
         this.setDefaultCloseOperation(javax.swing.JInternalFrame.DISPOSE_ON_CLOSE);
         this.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
@@ -45,7 +42,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
         setBorder(null);
         this.usuarioActual = usuario;
         cargarDatosUsuario();
-        
+
         // Configurar listener para limpiar referencia cuando se cierre
         this.setDefaultCloseOperation(javax.swing.JInternalFrame.DISPOSE_ON_CLOSE);
         this.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
@@ -105,8 +102,9 @@ public class JICuenta extends javax.swing.JInternalFrame {
         separadorUsuario3 = new javax.swing.JSeparator();
         lblCorreo1 = new javax.swing.JLabel();
         separadorUsuario4 = new javax.swing.JSeparator();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblCorreos = new javax.swing.JTable();
+        btnModificar = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        txtCorreo = new javax.swing.JTextField();
         btnCerrarSesion1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblInfProduct = new javax.swing.JLabel();
@@ -189,33 +187,9 @@ public class JICuenta extends javax.swing.JInternalFrame {
 
         separadorUsuario4.setBorder(new javax.swing.border.MatteBorder(null));
 
-        tblCorreos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblCorreos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        btnModificar.setText("Modificar");
 
-            },
-            new String [] {
-                "Correos"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblCorreos.setEnabled(false);
-        tblCorreos.setFocusable(false);
-        jScrollPane1.setViewportView(tblCorreos);
+        jButton1.setText("Guardar Cambios");
 
         javax.swing.GroupLayout panInfUserLayout = new javax.swing.GroupLayout(panInfUser);
         panInfUser.setLayout(panInfUserLayout);
@@ -223,21 +197,28 @@ public class JICuenta extends javax.swing.JInternalFrame {
             panInfUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panInfUserLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(panInfUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblGrado1)
-                    .addComponent(lblNombres)
-                    .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblInfUser)
-                    .addComponent(lblCorreo1)
-                    .addComponent(txtDni, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-                    .addComponent(txtNombres)
-                    .addComponent(txtGrado1)
-                    .addComponent(separadorUsuario3)
-                    .addComponent(separadorUsuario4)
-                    .addComponent(separadorUsuario2)
-                    .addComponent(separadorUsuario1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panInfUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panInfUserLayout.createSequentialGroup()
+                        .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(25, 25, 25))
+                    .addGroup(panInfUserLayout.createSequentialGroup()
+                        .addGroup(panInfUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblGrado1)
+                            .addComponent(lblNombres)
+                            .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblInfUser)
+                            .addComponent(txtDni, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                            .addComponent(txtNombres)
+                            .addComponent(txtGrado1)
+                            .addComponent(separadorUsuario3)
+                            .addComponent(separadorUsuario4)
+                            .addComponent(separadorUsuario2)
+                            .addComponent(separadorUsuario1)
+                            .addComponent(lblCorreo1)
+                            .addComponent(txtCorreo))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panInfUserLayout.setVerticalGroup(
             panInfUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,10 +245,14 @@ public class JICuenta extends javax.swing.JInternalFrame {
                 .addComponent(separadorUsuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCorreo1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(separadorUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addGroup(panInfUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -292,7 +277,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,36 +297,38 @@ public class JICuenta extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCerrarSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnCerrarSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 1436, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(panInfUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
+                        .addGap(49, 49, 49)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEpiciCorp, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblInfProduct))))
-                .addGap(0, 973, Short.MAX_VALUE))
+                            .addComponent(lblInfProduct)
+                            .addComponent(lblEpiciCorp))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panInfUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(71, 71, 71))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblInfProduct)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblEpiciCorp, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(771, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(30, 30, 30)
+                        .addComponent(lblEpiciCorp, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 670, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(panInfUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(15, 15, 15)))
                 .addComponent(btnCerrarSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(71, 71, 71))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -356,6 +343,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -388,9 +376,10 @@ public class JICuenta extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion1;
+    private javax.swing.JTextField btnModificar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCorreo1;
     private javax.swing.JLabel lblDni;
     private javax.swing.JLabel lblEpiciCorp;
@@ -403,7 +392,7 @@ public class JICuenta extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator separadorUsuario2;
     private javax.swing.JSeparator separadorUsuario3;
     private javax.swing.JSeparator separadorUsuario4;
-    private javax.swing.JTable tblCorreos;
+    private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtGrado1;
     private javax.swing.JTextField txtNombres;
@@ -412,19 +401,12 @@ public class JICuenta extends javax.swing.JInternalFrame {
     private void cargarDatosUsuario() {
         if (usuarioActual != null && usuarioActual.getDocente() != null) {
             Docente docente = usuarioActual.getDocente();
-            
+
             // Cargar datos en los campos de texto
             txtDni.setText(docente.getDni());
             txtNombres.setText(docente.getNombres() + " " + docente.getApellidos());
             txtGrado1.setText(docente.getGrado());
-            
-            // Cargar correo en la tabla
-            DefaultTableModel modeloTabla = (DefaultTableModel) tblCorreos.getModel();
-            modeloTabla.setRowCount(0); // Limpiar tabla
-            
-            if (docente.getCorreo() != null && !docente.getCorreo().trim().isEmpty()) {
-                modeloTabla.addRow(new Object[]{docente.getCorreo()});
-            }
+            txtCorreo.setText(docente.getCorreo());
         }
     }
 }

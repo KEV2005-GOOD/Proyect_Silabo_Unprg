@@ -3,10 +3,15 @@ package GUI;
 import Recursos.UsuarioServiceJAXB;
 import com.mycompany.proyect_silabo_unprg.Proyect_Silabo_Unprg;
 import entidades.Usuario;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.util.List;
 import javax.swing.JOptionPane;
 
 public class JFCrearCuenta extends javax.swing.JFrame {
+
+    private int mouseX, mouseY;
 
     UsuarioServiceJAXB servicioXml = new UsuarioServiceJAXB("src/main/resources/Usuarios.xml");
     private static JFCrearCuenta frm;
@@ -14,21 +19,35 @@ public class JFCrearCuenta extends javax.swing.JFrame {
 
     public static JFCrearCuenta crear() {
 
-        if (JFCrearCuenta.frm == null) {
 
-            JFCrearCuenta.frm = new JFCrearCuenta();
-            frm.setVisible(true);
-        }
         return JFCrearCuenta.frm;
     }
 
     int xMouse, yMouse;
 
     public JFCrearCuenta() {
+        setLocationRelativeTo(null);
+         this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                mouseX = e.getX();
+                mouseY = e.getY();
+            }
+        });
+
+        this.addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                int x = e.getXOnScreen();
+                int y = e.getYOnScreen();
+                setLocation(x - mouseX, y - mouseY);
+            }
+        });
         initComponents();
         Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtUsuario, "Ingresa tu nombre de usuario");
         Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtPass, "Ingrese su contraseña");
         Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtPassConfirmed, "Confirme su contraseña");
+
     }
 
     @SuppressWarnings("unchecked")
@@ -264,9 +283,9 @@ public class JFCrearCuenta extends javax.swing.JFrame {
 
     private void chkVerPasswordConfirmedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVerPasswordConfirmedActionPerformed
         if (chkVerPasswordConfirmed.isSelected()) {
-            txtPassConfirmed.setEchoChar((char) 0); // Muestra texto plano
+            txtPassConfirmed.setEchoChar((char) 0); 
         } else {
-            txtPassConfirmed.setEchoChar('\u2022'); // Vuelve a ocultar la contraseña
+            txtPassConfirmed.setEchoChar('\u2022'); 
         }
     }//GEN-LAST:event_chkVerPasswordConfirmedActionPerformed
 
@@ -296,11 +315,11 @@ public class JFCrearCuenta extends javax.swing.JFrame {
         Usuario nuevoUsuario = new Usuario(nombreUsuario, clave, null);
 
         if (servicioXml.agregarUsuarioSiNoExiste(nuevoUsuario)) {
-            JOptionPane.showMessageDialog(this, "✅ Usuario registrado correctamente. Completa tu perfil.");
+            JOptionPane.showMessageDialog(this, "Usuario registrado correctamente. Completa tu perfil.");
             new JFDatosCompletarRegistro(nuevoUsuario).setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(this, "❌ No se pudo registrar el usuario. Verifica los datos.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No se pudo registrar el usuario. Verifica los datos.", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btnRegistrarActionPerformed

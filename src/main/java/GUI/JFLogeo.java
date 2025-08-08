@@ -18,10 +18,10 @@ public class JFLogeo extends javax.swing.JFrame {
     private int cantidadIntentos = 4;
     private Usuario usuarioLogeado;
     private boolean datoscargados = false;
-  
 
     public JFLogeo() {
-        setUndecorated(true); // eliminamos la barra del titulo 
+        setUndecorated(true);
+
         initComponents();
         Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtUsuario, "Ingresa tu nombre de usuario");
         Proyect_Silabo_Unprg.configurarCampoConPlaceholder(txtPass, "Ingrese su contraseña");
