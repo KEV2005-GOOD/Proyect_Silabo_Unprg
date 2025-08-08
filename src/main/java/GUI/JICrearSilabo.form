@@ -19,7 +19,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pn8" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="pn8" min="-2" pref="1358" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -185,7 +188,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="73" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -913,7 +916,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="1070" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="1090" max="32767" attributes="0"/>
                               <Component id="btnAtras2" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnSiguiente2" min="-2" pref="120" max="-2" attributes="0"/>
@@ -1052,7 +1055,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane4" alignment="0" pref="1316" max="32767" attributes="0"/>
+                      <Component id="jScrollPane4" alignment="0" pref="1336" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1092,7 +1095,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane6" alignment="1" pref="1322" max="32767" attributes="0"/>
+                      <Component id="jScrollPane6" alignment="1" pref="1342" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1132,7 +1135,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane7" alignment="0" pref="1316" max="32767" attributes="0"/>
+                      <Component id="jScrollPane7" alignment="0" pref="1336" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1246,7 +1249,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane8" pref="1291" max="32767" attributes="0"/>
+                              <Component id="jScrollPane8" pref="1311" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="btnEditarUnidades" min="-2" max="-2" attributes="0"/>
@@ -1309,7 +1312,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="scpUniddadesDetallada" alignment="0" pref="1313" max="32767" attributes="0"/>
+                      <Component id="scpUniddadesDetallada" alignment="0" pref="1333" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblUnidades" min="-2" pref="70" max="-2" attributes="0"/>
@@ -1500,7 +1503,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="txtPromedioFinal" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="scpTablaCalificación" pref="1137" max="32767" attributes="0"/>
+                              <Component id="scpTablaCalificación" pref="1157" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1733,7 +1736,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane13" alignment="1" pref="1273" max="32767" attributes="0"/>
+                              <Component id="jScrollPane13" alignment="1" pref="1293" max="32767" attributes="0"/>
                               <Component id="jScrollPane12" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1855,7 +1858,7 @@
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="1059" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="1079" max="32767" attributes="0"/>
                               <Component id="btnAnterior7" min="-2" pref="120" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnSiguiente7" min="-2" pref="120" max="-2" attributes="0"/>
@@ -1950,7 +1953,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblBienvenida" min="-2" pref="227" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane17" pref="1311" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane17" pref="1331" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                           </Group>

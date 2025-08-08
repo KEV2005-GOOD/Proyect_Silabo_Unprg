@@ -46,8 +46,7 @@ public class JFSilabo extends javax.swing.JFrame {
         btnInicio = new javax.swing.JButton();
         btnCrear = new javax.swing.JButton();
         btnAbrir = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        btnExportar = new javax.swing.JButton();
+        btnConfigurarCuenta = new javax.swing.JButton();
         lblBienvenida = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
 
@@ -111,31 +110,17 @@ public class JFSilabo extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(25, 118, 210));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user.png"))); // NOI18N
-        jButton1.setText("Cuenta");
-        jButton1.setBorderPainted(false);
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton1.setIconTextGap(12);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnConfigurarCuenta.setBackground(new java.awt.Color(25, 118, 210));
+        btnConfigurarCuenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnConfigurarCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfigurarCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user.png"))); // NOI18N
+        btnConfigurarCuenta.setText("Cuenta");
+        btnConfigurarCuenta.setBorderPainted(false);
+        btnConfigurarCuenta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnConfigurarCuenta.setIconTextGap(12);
+        btnConfigurarCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        btnExportar.setBackground(new java.awt.Color(25, 118, 210));
-        btnExportar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnExportar.setForeground(new java.awt.Color(255, 255, 255));
-        btnExportar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/export.png"))); // NOI18N
-        btnExportar.setText("Exportar");
-        btnExportar.setBorderPainted(false);
-        btnExportar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnExportar.setIconTextGap(12);
-        btnExportar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarActionPerformed(evt);
+                btnConfigurarCuentaActionPerformed(evt);
             }
         });
 
@@ -153,8 +138,7 @@ public class JFSilabo extends javax.swing.JFrame {
             .addComponent(btnInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnAbrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnExportar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnConfigurarCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnLateralLayout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addComponent(lblLogo)
@@ -174,10 +158,8 @@ public class JFSilabo extends javax.swing.JFrame {
                 .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
                 .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(btnExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                .addComponent(btnConfigurarCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -229,17 +211,7 @@ public class JFSilabo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCrearActionPerformed
 
-    private void btnExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarActionPerformed
-        limpiarDesktopPane(dpSilabo);
-        JIExportar frm = JIExportar.crear(this.dpSilabo);
-        frm.setVisible(true);
-        try {
-            frm.setMaximum(true);
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_btnExportarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnConfigurarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigurarCuentaActionPerformed
         limpiarDesktopPane(dpSilabo);
         JICuenta frm = JICuenta.crear(this.dpSilabo, userLogged);
         frm.setVisible(true);
@@ -247,7 +219,7 @@ public class JFSilabo extends javax.swing.JFrame {
             frm.setMaximum(true);
         } catch (Exception e) {
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnConfigurarCuentaActionPerformed
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
         // Crear el JFileChooser
@@ -370,11 +342,10 @@ public class JFSilabo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAbrir;
+    private javax.swing.JButton btnConfigurarCuenta;
     private javax.swing.JButton btnCrear;
-    private javax.swing.JButton btnExportar;
     private javax.swing.JButton btnInicio;
     private javax.swing.JDesktopPane dpSilabo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblBienvenida;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JPanel pnLateral;

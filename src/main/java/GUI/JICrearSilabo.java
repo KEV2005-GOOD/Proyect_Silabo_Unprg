@@ -659,7 +659,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtGrado, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 53, Short.MAX_VALUE)))
+                        .addGap(0, 73, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -775,7 +775,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(pn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn2Layout.createSequentialGroup()
-                        .addGap(0, 1070, Short.MAX_VALUE)
+                        .addGap(0, 1090, Short.MAX_VALUE)
                         .addComponent(btnAtras2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSiguiente2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -821,7 +821,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1316, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 1336, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -841,7 +841,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1322, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1342, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -861,7 +861,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1316, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 1336, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -928,7 +928,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1291, Short.MAX_VALUE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 1311, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnEditarUnidades)))
@@ -968,7 +968,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         panUnidadesDetallada.setLayout(panUnidadesDetalladaLayout);
         panUnidadesDetalladaLayout.setHorizontalGroup(
             panUnidadesDetalladaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scpUniddadesDetallada, javax.swing.GroupLayout.DEFAULT_SIZE, 1313, Short.MAX_VALUE)
+            .addComponent(scpUniddadesDetallada, javax.swing.GroupLayout.DEFAULT_SIZE, 1333, Short.MAX_VALUE)
             .addGroup(panUnidadesDetalladaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1114,7 +1114,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                         .addComponent(jLabel20)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtPromedioFinal))
-                    .addComponent(scpTablaCalificación, javax.swing.GroupLayout.DEFAULT_SIZE, 1137, Short.MAX_VALUE))
+                    .addComponent(scpTablaCalificación, javax.swing.GroupLayout.DEFAULT_SIZE, 1157, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panSistemaCalificaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1230,7 +1230,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             .addGroup(panDetalladoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panDetalladoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1273, Short.MAX_VALUE)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1293, Short.MAX_VALUE)
                     .addComponent(jScrollPane12)
                     .addGroup(panDetalladoLayout.createSequentialGroup()
                         .addGroup(panDetalladoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1341,7 +1341,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 .addGap(17, 17, 17)
                 .addGroup(pn7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pn7Layout.createSequentialGroup()
-                        .addGap(0, 1059, Short.MAX_VALUE)
+                        .addGap(0, 1079, Short.MAX_VALUE)
                         .addComponent(btnAnterior7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSiguiente7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1410,7 +1410,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 1311, Short.MAX_VALUE))
+                            .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 1331, Short.MAX_VALUE))
                         .addGap(5, 5, 5)))
                 .addContainerGap())
             .addGroup(jPanel13Layout.createSequentialGroup()
@@ -1442,7 +1442,9 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pn8)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pn8, javax.swing.GroupLayout.PREFERRED_SIZE, 1358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
