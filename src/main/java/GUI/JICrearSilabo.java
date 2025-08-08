@@ -30,8 +30,12 @@ import entidades.Desempeño;
 import entidades.Docente;
 import entidades.Escuela;
 import entidades.EvaluacionesCalificadas;
+import entidades.EvidenciaAprendizaje;
 import entidades.Facultad;
+import entidades.HabilidadRequerida;
+import entidades.Semana;
 import entidades.Silabo;
+import entidades.SistemaCalificacion;
 import entidades.Unidad;
 import entidades.Usuario;
 import jakarta.xml.bind.JAXBContext;
@@ -2048,9 +2052,11 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         silabo.setDepartamento(departamento);
         silabo.setEscuela(escuela);
         silabo.setDocente(usuarioCreador);
-        silabo.setSemanas((String) spDuración.getValue());
+        silabo.setCurso(cursoSeleccionado);
+        silabo.setSemanas((int) spDuración.getValue());
         silabo.setFechaInicio(FechaInicio);
         silabo.setFechaFin(FechaFin);
+        silabo.setSistemaCalific(new SistemaCalificacion(evaluacionesCalificadas));
         silabo.setSemestreAcademico(this.spSemestreAnio.getValue() + this.cboSemestre.getSelectedItem().toString());
         String mensaje = "";
         mensaje += txaMetodologiaEnseñanza.getText() + "\n";
@@ -2062,19 +2068,18 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         silabo.setMetodologiaEnseñanza(mensaje);
         silabo.setFuentesReferenciales(txaReferencias.getText());
 
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        marshaller.marshal(silabo, new FileWriter("SilaboGenadao.xml"));
-
-        JICrearSilabo.generarPDFSilabo(silabo);
+//        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+//        marshaller.marshal(silabo, new FileWriter("SilaboGenadao.xml"));
+        JICrearSilabo.generarPDFSilabo(silabo, this.unidadesLis);
     }
 
-    private static void generarPDFSilabo(Silabo silabus) throws IOException {
-        final String RUTA ="";
-        final String RUTAESCUDOPEDRO = "src/main/resources/logo_unprg.png";
-        final String RUTAESCUDOFACFYM = "src/main/resources/EscudoFACFYM.jpg";
+    private static void generarPDFSilabo(Silabo silabus, List<Unidad> unidadesSilabo) throws IOException {
+        final String RUTA = "src\\main\\pdfsGenerados\\sexito.pdf";
+        final String RUTAESCUDOPEDRO = "src\\main\\resources\\logo_unprg.png";
+        final String RUTAESCUDOFACFYM = "src\\main\\resources\\EscudoFACFYM.jpg";
         SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 
-        if (silabus != null) {
+        if (silabus != null && unidadesSilabo != null) {
             PdfWriter writer = new PdfWriter(RUTA);
             PdfDocument pdf = new PdfDocument(writer);
             Document documento = new Document(pdf);
@@ -2095,7 +2100,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             // Celda central (texto institucional)
             Paragraph textoCentral = new Paragraph("UNIVERSIDAD NACIONAL “PEDRO RUIZ GALLO”\n"
                     + "Facultad de Ciencias Físicas y Matemáticas\n"
-                    + "ESCUELA PROFESIONAL DE INGENIERÍA EN COMPUTACIÓN E INFORMÁTICA\n"
+                    + silabus.getEscuela().getNombre() + "\n"
                     + "Departamento Académico de Computación y Electrónica")
                     .setTextAlignment(TextAlignment.CENTER)
                     .setFontSize(12)
@@ -2111,7 +2116,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
             documento.add(encabezado);
             documento.add(espacioBlanco);
-            
+
             // Crear párrafo con el texto
             Paragraph tituloCuadro = new Paragraph(silabus.getCurso().getNombre()).add("\nSECCION")
                     .setTextAlignment(TextAlignment.CENTER)
@@ -2207,7 +2212,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             Paragraph tituloDesepenioUD = new Paragraph("\n\nV. Desempeño de las Unidades Didacticas").setFontSize(10).setBold().setMarginLeft(20);
             documento.add(tituloDesepenioUD);
             for (int i = 0; i < silabus.getCurso().getDesempeños().size(); i++) {
-                Paragraph textoDesempenio = new Paragraph("D" + String.valueOf(i) + ": " + silabus.getCurso().getDesempeños().get(i).getDesempeño());
+                Paragraph textoDesempenio = new Paragraph("D" + String.valueOf(i + 1) + ": " + silabus.getCurso().getDesempeños().get(i).getDesempeño());
                 textoDesempenio.setTextAlignment(TextAlignment.LEFT);
                 textoDesempenio.setFontSize(10);
                 textoDesempenio.setPaddingLeft(20);
@@ -2215,6 +2220,40 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 textoDesempenio.setBold();
                 documento.add(textoDesempenio);
             }
+
+            Paragraph tituloProgramaContenidos = new Paragraph("\n\nVI. Programa de Contenidos").setFontSize(10).setBold().setMarginLeft(20);
+            documento.add(tituloProgramaContenidos);
+
+            generarTablaUnidades(unidadesSilabo, documento);
+
+            Paragraph tituloSistemaEvaluacion = new Paragraph("\n\nVII. Sistema de Evaluacion").setFontSize(10).setBold().setMarginLeft(20);
+            documento.add(tituloSistemaEvaluacion);
+
+            Paragraph tituloSistemaCafilificacion = new Paragraph("\n\nVIII. Sistema de Calificacion").setFontSize(10).setBold().setMarginLeft(20);
+            documento.add(tituloSistemaCafilificacion);
+
+            float[] columnas = {250F, 80F, 50F, 100F};
+            Table tablaSistemaCalificacion = new Table(columnas);
+            tablaSistemaCalificacion.addHeaderCell(new Cell().add(new Paragraph("Evidencias de aprendizaje")));
+            tablaSistemaCalificacion.addHeaderCell(new Cell().add(new Paragraph("Sigla")));
+            tablaSistemaCalificacion.addHeaderCell(new Cell().add(new Paragraph("Peso")));
+            tablaSistemaCalificacion.addHeaderCell(new Cell().add(new Paragraph("Cronograma")));
+
+            for (EvaluacionesCalificadas eval : silabus.getSistemaCalific().getEvaluaciones()) {
+                tablaSistemaCalificacion.addCell(new Cell().add(new Paragraph(eval.getNombreEvaluacion())));
+                tablaSistemaCalificacion.addCell(new Cell().add(new Paragraph(eval.getSiglasEvaluacion())));
+                tablaSistemaCalificacion.addCell(new Cell().add(new Paragraph(eval.getPeso() + "%")));
+                tablaSistemaCalificacion.addCell(new Cell().add(new Paragraph(eval.getCronograma())));
+            }
+
+            String formula = silabus.getSistemaCalific().getFormulaPromedioFinal();
+            Cell celdaFormula = new Cell(1, 4) // 1 fila, 4 columnas fusionadas
+                    .add(new Paragraph("Promedio Final = " + formula))
+                    .setBold()
+                    .setTextAlignment(TextAlignment.CENTER);
+            tablaSistemaCalificacion.addCell(celdaFormula);
+
+            documento.add(tablaSistemaCalificacion);
 
             Paragraph tituloMetodologiaEnseñanza = new Paragraph("\n\nIX. Metodologia de Enseñanza-Aprendizaje y Actividades de Investigacion").setFontSize(10).setBold().setMarginLeft(20);
             documento.add(tituloMetodologiaEnseñanza);
@@ -2253,6 +2292,106 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
             documento.add(textoReferencias);
             documento.close();
+        } else {
+            JOptionPane.showMessageDialog(null, "Las unidades estan vacias");
         }
     }
+
+
+    private static void generarTablaUnidades(List<Unidad> unidades, Document document) {
+        int contadorUnidad = 1;
+
+        for (Unidad unidad : unidades) {
+            // Encabezado de unidad
+            String tituloUnidad = "UNIDAD " + contadorUnidad + ": " + unidad.getNombre().toUpperCase();
+            Paragraph titulo = new Paragraph(tituloUnidad)
+                    .setBold()
+                    .setTextAlignment(TextAlignment.CENTER)
+                    .setBackgroundColor(ColorConstants.LIGHT_GRAY)
+                    .setMarginBottom(10)
+                    .setFontSize(12);
+            document.add(titulo);
+
+            // Crear tabla con 6 columnas
+            Table tabla = new Table(UnitValue.createPercentArray(new float[]{2, 2, 1, 2, 2, 3}))
+                    .useAllAvailableWidth();
+
+            // Encabezados
+            tabla.addHeaderCell(new Cell().add(new Paragraph("Desempeño").setBold()));
+            tabla.addHeaderCell(new Cell().add(new Paragraph("Habilidad Requerida").setBold()));
+            tabla.addHeaderCell(new Cell().add(new Paragraph("Semana").setBold()));
+            tabla.addHeaderCell(new Cell().add(new Paragraph("Conocimiento").setBold()));
+            tabla.addHeaderCell(new Cell().add(new Paragraph("Actividad").setBold()));
+            tabla.addHeaderCell(new Cell().add(new Paragraph("Evidencia de Aprendizaje").setBold()));
+
+            // Calcular total de semanas en la unidad
+            int totalSemanas = unidad.getHabilidadesRequeridas().stream()
+                    .mapToInt(h -> h.getSemanas().size())
+                    .sum();
+
+            // Celda fusionada de desempeño
+            Cell celdaDesempeño = new Cell(totalSemanas, 1)
+                    .add(new Paragraph(unidad.getDesempeño()))
+                    .setVerticalAlignment(VerticalAlignment.MIDDLE)
+                    .setTextAlignment(TextAlignment.LEFT);
+            tabla.addCell(celdaDesempeño);
+
+            // Recorrer habilidades
+            for (HabilidadRequerida habilidad : unidad.getHabilidadesRequeridas()) {
+                List<Semana> semanas = habilidad.getSemanas();
+                int i = 0;
+
+                // Celda fusionada de habilidad
+                Cell celdaHabilidad = new Cell(semanas.size(), 1)
+                        .add(new Paragraph(habilidad.getHabilidad()))
+                        .setVerticalAlignment(VerticalAlignment.MIDDLE)
+                        .setTextAlignment(TextAlignment.LEFT);
+                tabla.addCell(celdaHabilidad);
+
+                while (i < semanas.size()) {
+                    Semana semanaActual = semanas.get(i);
+                    EvidenciaAprendizaje evidenciaActual = semanaActual.getEvidenciasAprendizaje();
+
+                    // Detectar cuántas semanas comparten esta evidencia
+                    int rowspan = 1;
+                    for (int j = i + 1; j < semanas.size(); j++) {
+                        EvidenciaAprendizaje evidenciaComparada = semanas.get(j).getEvidenciasAprendizaje();
+                        if (evidenciaActual.getEvidencia().equals(evidenciaComparada.getEvidencia())) {
+                            rowspan++;
+                        } else {
+                            break;
+                        }
+                    }
+
+                    // Agregar filas por cada semana
+                    for (int k = 0; k < rowspan; k++) {
+                        Semana semana = semanas.get(i + k);
+                        tabla.addCell(new Cell().add(new Paragraph("Semana " + semana.getNumeroSemana())));
+                        tabla.addCell(new Cell().add(new Paragraph(semana.getConocimiento())));
+                        tabla.addCell(new Cell().add(new Paragraph(semana.getActividadAprendizaje())));
+
+                        if (k == 0) {
+                            String evidenciaTexto = evidenciaActual.getEvidencia() + "\n("
+                                    + evidenciaActual.getTipoEvidencia() + " - "
+                                    + evidenciaActual.getInstrumentoEvaluacion() + ")";
+                            Cell celdaEvidencia = new Cell(rowspan, 1)
+                                    .add(new Paragraph(evidenciaTexto))
+                                    .setVerticalAlignment(VerticalAlignment.MIDDLE)
+                                    .setTextAlignment(TextAlignment.LEFT);
+                            tabla.addCell(celdaEvidencia);
+                        }
+                    }
+
+                    i += rowspan;
+                }
+            }
+
+            // Agregar tabla al documento
+            tabla.setMarginBottom(20);
+            document.add(tabla);
+
+            contadorUnidad++;
+        }
+    }
+
 }

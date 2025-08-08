@@ -1,7 +1,10 @@
 package entidades;
 
 import java.util.Date;
+import com.chm.converter.xml.annotation.XmlRootElement;
 
+
+@XmlRootElement(name = "silabo")
 public class Silabo {
 
     private Facultad facultad;
@@ -9,18 +12,20 @@ public class Silabo {
     private Escuela escuela;
     private Curso curso;
     private Docente docente;
-    private String Semanas;
+    private int Semanas;
     private Date FechaInicio;
     private Date FechaFin;
     private String MetodologiaEnseñanza;
     private String actividadesAuditorias;
     private String fuentesReferenciales;
     private String semestreAcademico;
+    private SistemaCalificacion sistemaCalific;
 
-    public Silabo() {
+    public SistemaCalificacion getSistemaCalific() {
+        return sistemaCalific;
     }
 
-    public Silabo(Facultad facultad, DepartamentoAcademico departamento, Escuela escuela, Curso curso, Docente docente, String Semanas, Date FechaInicio, Date FechaFin, String MetodologiaEnseñanza, String actividadesAuditorias, String fuentesReferenciales, String semestreAcademico) {
+    public Silabo(Facultad facultad, DepartamentoAcademico departamento, Escuela escuela, Curso curso, Docente docente, int Semanas, Date FechaInicio, Date FechaFin, String MetodologiaEnseñanza, String actividadesAuditorias, String fuentesReferenciales, String semestreAcademico, SistemaCalificacion sistemaCalific) {
         this.facultad = facultad;
         this.departamento = departamento;
         this.escuela = escuela;
@@ -33,10 +38,17 @@ public class Silabo {
         this.actividadesAuditorias = actividadesAuditorias;
         this.fuentesReferenciales = fuentesReferenciales;
         this.semestreAcademico = semestreAcademico;
+        this.sistemaCalific = sistemaCalific;
     }
 
     
     
+    public void setSistemaCalific(SistemaCalificacion sistemaCalific) {
+        this.sistemaCalific = sistemaCalific;
+    }
+    public Silabo() {
+    }
+
     public String getSemestreAcademico() {
         return semestreAcademico;
     }
@@ -77,11 +89,11 @@ public class Silabo {
         this.docente = docente;
     }
 
-    public String getSemanas() {
+    public int getSemanas() {
         return Semanas;
     }
 
-    public void setSemanas(String Semanas) {
+    public void setSemanas(int Semanas) {
         this.Semanas = Semanas;
     }
 
