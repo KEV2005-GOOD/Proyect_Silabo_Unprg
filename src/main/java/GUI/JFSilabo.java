@@ -207,7 +207,7 @@ public class JFSilabo extends javax.swing.JFrame {
                 }
             }
             frm1 = null;
-//            frmCrear = null;
+            frmCrear = null;
         }
     }//GEN-LAST:event_btnCrearActionPerformed
 

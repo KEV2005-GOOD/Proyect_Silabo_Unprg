@@ -93,6 +93,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
     public JICrearSilabo(Silabo silabo, Usuario user) throws IOException {
         initComponents();
+
         pn8.setUI(new javax.swing.plaf.basic.BasicTabbedPaneUI() {
             @Override
             protected int calculateTabAreaHeight(int tabPlacement, int runCount, int maxTabHeight) {
@@ -109,6 +110,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         cargarDatosASilabo();
         cargarDatosDocenteLoggeado();
         cargarCiclosDeSilabo();
+        mostrarBienvenida();
         configurarTablaDesempeñosMultilinea();
 
         // Configurar listener para limpiar referencia cuando se cierre
@@ -119,6 +121,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                 frm = null;
             }
         });
+    }
+
+    private void mostrarBienvenida() {
+
+        Docente d = usuarioCreador;
+        String saludo = d.getGrado() + " " + d.getFullName();
+        lblBienvenida1.setText(saludo);
     }
 
     public static JICrearSilabo crear(javax.swing.JDesktopPane contenedor, Silabo silabo, Usuario usuarioDocente) throws IOException {
