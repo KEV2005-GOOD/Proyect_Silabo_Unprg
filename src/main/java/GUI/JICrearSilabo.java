@@ -51,8 +51,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -2057,7 +2059,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
         silabo.setFechaInicio(FechaInicio);
         silabo.setFechaFin(FechaFin);
         silabo.setSistemaCalific(new SistemaCalificacion(evaluacionesCalificadas));
-        silabo.setSemestreAcademico(this.spSemestreAnio.getValue() + this.cboSemestre.getSelectedItem().toString());
+        silabo.setSemestreAcademico(this.spSemestreAnio.getValue() +"-"+ this.cboSemestre.getSelectedItem().toString());
         String mensaje = "";
         mensaje += txaMetodologiaEnseñanza.getText() + "\n";
         if (detallado == true) {
@@ -2074,7 +2076,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     }
 
     private static void generarPDFSilabo(Silabo silabus, List<Unidad> unidadesSilabo) throws IOException {
-        final String RUTA = "src\\main\\pdfsGenerados\\sexito.pdf";
+        final String RUTA = "src\\main\\pdfsGenerados\\"+silabus.getCurso().getCodigoCurso()+silabus.getSemestreAcademico()+".pdf";
         final String RUTAESCUDOPEDRO = "src\\main\\resources\\logo_unprg.png";
         final String RUTAESCUDOFACFYM = "src\\main\\resources\\EscudoFACFYM.jpg";
         SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
@@ -2092,12 +2094,12 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             Table encabezado = new Table(UnitValue.createPercentArray(new float[]{1, 4, 1}))
                     .useAllAvailableWidth()
                     .setBorder(Border.NO_BORDER);
-            // Celda izquierda (logo universidad)
+
             encabezado.addCell(new Cell().add(escudoPedro)
                     .setTextAlignment(TextAlignment.CENTER)
                     .setBorder(Border.NO_BORDER));
 
-            // Celda central (texto institucional)
+
             Paragraph textoCentral = new Paragraph("UNIVERSIDAD NACIONAL “PEDRO RUIZ GALLO”\n"
                     + "Facultad de Ciencias Físicas y Matemáticas\n"
                     + silabus.getEscuela().getNombre() + "\n"
@@ -2109,7 +2111,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                     .setTextAlignment(TextAlignment.CENTER)
                     .setBorder(Border.NO_BORDER));
 
-            // Celda derecha (logo facultad)
             encabezado.addCell(new Cell().add(escudoFACFYM)
                     .setTextAlignment(TextAlignment.CENTER)
                     .setBorder(Border.NO_BORDER));
@@ -2117,13 +2118,13 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             documento.add(encabezado);
             documento.add(espacioBlanco);
 
-            // Crear párrafo con el texto
+
             Paragraph tituloCuadro = new Paragraph(silabus.getCurso().getNombre()).add("\nSECCION")
                     .setTextAlignment(TextAlignment.CENTER)
                     .setFontSize(10)
                     .setBold()
                     .setMargin(5);
-            // Crear celda con fondo gris y borde negro
+
             Cell celdaCuadro = new Cell()
                     .add(tituloCuadro)
                     .setBackgroundColor(ColorConstants.LIGHT_GRAY)
@@ -2131,11 +2132,11 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                     .setTextAlignment(TextAlignment.CENTER)
                     .setVerticalAlignment(VerticalAlignment.MIDDLE);
 
-            // Crear tabla de una sola celda para controlar el ancho
+
             Table cuadro = new Table(1).setWidth(UnitValue.createPointValue(400)).setHeight(UnitValue.createPointValue(50)) // ajusta el ancho aquí
                     .setHorizontalAlignment(HorizontalAlignment.CENTER) // centra el cuadro
                     .addCell(celdaCuadro);
-            // Crear la lista sin símbolo y con fuente tamaño 10
+
             com.itextpdf.layout.element.List listInformacionGeneral = new com.itextpdf.layout.element.List()
                     .setSymbolIndent(12)
                     .setListSymbol("")
@@ -2162,7 +2163,6 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
                     .add(new ListItem("1.9 Créditos: " + silabus.getCurso().getCreditos())).setMarginLeft(40)
                     .add(new ListItem("1.10 Horas Semanales: " + String.valueOf(horasTotales))).setMarginLeft(40)
                     .add(new ListItem(" Teoria: " + String.valueOf(silabus.getCurso().getHorasTeoricaSemanales()))).setMarginLeft(80)
-                    .add(new ListItem(" Practica: " + String.valueOf(silabus.getCurso().getHorasPracticasSemanales()))).setMarginLeft(80)
                     .add(new ListItem(" Practica: " + String.valueOf(silabus.getCurso().getHorasPracticasSemanales()))).setMarginLeft(80)
                     .add(new ListItem("1.11 Duracion: " + silabus.getSemanas())).setMarginLeft(40)
                     .add(new ListItem("Fecha de Inicio:  " + formato.format(silabus.getFechaInicio()))).setMarginLeft(40)
@@ -2229,6 +2229,8 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             Paragraph tituloSistemaEvaluacion = new Paragraph("\n\nVII. Sistema de Evaluacion").setFontSize(10).setBold().setMarginLeft(20);
             documento.add(tituloSistemaEvaluacion);
 
+            generarTablaSistemaEvaluacion(silabus.getCurso().getDesempeños(), documento);
+            
             Paragraph tituloSistemaCafilificacion = new Paragraph("\n\nVIII. Sistema de Calificacion").setFontSize(10).setBold().setMarginLeft(20);
             documento.add(tituloSistemaCafilificacion);
 
@@ -2270,7 +2272,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
             Paragraph tituloActividadesTutoria = new Paragraph("\n\nX. Actividades de tutoria: Area Academica").setFontSize(10).setBold().setMarginLeft(20);
             documento.add(tituloActividadesTutoria);
 
-            Paragraph textoActividadesTutoria = new Paragraph(silabus.getMetodologiaEnseñanza());
+            Paragraph textoActividadesTutoria = new Paragraph(silabus.getActividadesAuditorias());
             textoActividadesTutoria.setTextAlignment(TextAlignment.JUSTIFIED_ALL);
             textoActividadesTutoria.setTextAlignment(TextAlignment.LEFT);
             textoActividadesTutoria.setFontSize(10);
@@ -2283,7 +2285,7 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
 
             documento.add(tituloReferencias);
 
-            Paragraph textoReferencias = new Paragraph(silabus.getMetodologiaEnseñanza());
+            Paragraph textoReferencias = new Paragraph(silabus.getFuentesReferenciales());
             textoReferencias.setTextAlignment(TextAlignment.JUSTIFIED_ALL);
             textoReferencias.setTextAlignment(TextAlignment.LEFT);
             textoReferencias.setFontSize(10);
@@ -2298,100 +2300,172 @@ public class JICrearSilabo extends javax.swing.JInternalFrame {
     }
 
 
-    private static void generarTablaUnidades(List<Unidad> unidades, Document document) {
-        int contadorUnidad = 1;
+private static void generarTablaUnidades(List<Unidad> unidades, Document document) {
+    int contadorUnidad = 1;
 
-        for (Unidad unidad : unidades) {
-            // Encabezado de unidad
-            String tituloUnidad = "UNIDAD " + contadorUnidad + ": " + unidad.getNombre().toUpperCase();
-            Paragraph titulo = new Paragraph(tituloUnidad)
-                    .setBold()
-                    .setTextAlignment(TextAlignment.CENTER)
-                    .setBackgroundColor(ColorConstants.LIGHT_GRAY)
-                    .setMarginBottom(10)
-                    .setFontSize(12);
-            document.add(titulo);
+    for (Unidad unidad : unidades) {
+        // Encabezado de unidad
+        String tituloUnidad = "UNIDAD " + contadorUnidad + ": " + unidad.getNombre().toUpperCase();
+        Paragraph titulo = new Paragraph(tituloUnidad)
+                .setBold()
+                .setTextAlignment(TextAlignment.CENTER)
+                .setBackgroundColor(ColorConstants.LIGHT_GRAY)
+                .setMarginBottom(10)
+                .setFontSize(12);
+        document.add(titulo);
 
-            // Crear tabla con 6 columnas
-            Table tabla = new Table(UnitValue.createPercentArray(new float[]{2, 2, 1, 2, 2, 3}))
-                    .useAllAvailableWidth();
+        // Crear tabla con 6 columnas
+        Table tabla = new Table(UnitValue.createPercentArray(new float[]{2, 2, 1, 2, 2, 3}))
+                .useAllAvailableWidth();
 
-            // Encabezados
-            tabla.addHeaderCell(new Cell().add(new Paragraph("Desempeño").setBold()));
-            tabla.addHeaderCell(new Cell().add(new Paragraph("Habilidad Requerida").setBold()));
-            tabla.addHeaderCell(new Cell().add(new Paragraph("Semana").setBold()));
-            tabla.addHeaderCell(new Cell().add(new Paragraph("Conocimiento").setBold()));
-            tabla.addHeaderCell(new Cell().add(new Paragraph("Actividad").setBold()));
-            tabla.addHeaderCell(new Cell().add(new Paragraph("Evidencia de Aprendizaje").setBold()));
+        // Encabezados
+        tabla.addHeaderCell(new Cell().add(new Paragraph("Desempeño").setBold()));
+        tabla.addHeaderCell(new Cell().add(new Paragraph("Habilidad Requerida").setBold()));
+        tabla.addHeaderCell(new Cell().add(new Paragraph("Semana").setBold()));
+        tabla.addHeaderCell(new Cell().add(new Paragraph("Conocimiento").setBold()));
+        tabla.addHeaderCell(new Cell().add(new Paragraph("Actividad").setBold()));
+        tabla.addHeaderCell(new Cell().add(new Paragraph("Evidencia de Aprendizaje").setBold()));
 
-            // Calcular total de semanas en la unidad
-            int totalSemanas = unidad.getHabilidadesRequeridas().stream()
-                    .mapToInt(h -> h.getSemanas().size())
-                    .sum();
+        // Calcular total de semanas en la unidad
+        int totalSemanas = unidad.getHabilidadesRequeridas().stream()
+                .mapToInt(h -> h.getSemanas().size())
+                .sum();
 
-            // Celda fusionada de desempeño
-            Cell celdaDesempeño = new Cell(totalSemanas, 1)
-                    .add(new Paragraph(unidad.getDesempeño()))
+        // Celda fusionada de desempeño
+        Cell celdaDesempeño = new Cell(totalSemanas, 1)
+                .add(new Paragraph(unidad.getDesempeño()))
+                .setVerticalAlignment(VerticalAlignment.MIDDLE)
+                .setTextAlignment(TextAlignment.LEFT);
+        tabla.addCell(celdaDesempeño);
+
+        // Inicializar contador global de semanas
+        int contadorSemana = 1;
+
+        // Recorrer habilidades
+        for (HabilidadRequerida habilidad : unidad.getHabilidadesRequeridas()) {
+            List<Semana> semanas = habilidad.getSemanas();
+            int i = 0;
+
+            // Celda fusionada de habilidad
+            Cell celdaHabilidad = new Cell(semanas.size(), 1)
+                    .add(new Paragraph(habilidad.getHabilidad()))
                     .setVerticalAlignment(VerticalAlignment.MIDDLE)
                     .setTextAlignment(TextAlignment.LEFT);
-            tabla.addCell(celdaDesempeño);
+            tabla.addCell(celdaHabilidad);
 
-            // Recorrer habilidades
-            for (HabilidadRequerida habilidad : unidad.getHabilidadesRequeridas()) {
-                List<Semana> semanas = habilidad.getSemanas();
-                int i = 0;
+            while (i < semanas.size()) {
+                Semana semanaActual = semanas.get(i);
+                EvidenciaAprendizaje evidenciaActual = semanaActual.getEvidenciasAprendizaje();
 
-                // Celda fusionada de habilidad
-                Cell celdaHabilidad = new Cell(semanas.size(), 1)
-                        .add(new Paragraph(habilidad.getHabilidad()))
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE)
-                        .setTextAlignment(TextAlignment.LEFT);
-                tabla.addCell(celdaHabilidad);
+                // Detectar cuántas semanas comparten esta evidencia
+                int rowspan = 1;
+                for (int j = i + 1; j < semanas.size(); j++) {
+                    EvidenciaAprendizaje evidenciaComparada = semanas.get(j).getEvidenciasAprendizaje();
+                    if (evidenciaActual.getEvidencia().equals(evidenciaComparada.getEvidencia())) {
+                        rowspan++;
+                    } else {
+                        break;
+                    }
+                }
 
-                while (i < semanas.size()) {
-                    Semana semanaActual = semanas.get(i);
-                    EvidenciaAprendizaje evidenciaActual = semanaActual.getEvidenciasAprendizaje();
+                // Agregar filas por cada semana
+                for (int k = 0; k < rowspan; k++) {
+                    Semana semana = semanas.get(i + k);
+                    tabla.addCell(new Cell().add(new Paragraph("Semana " + contadorSemana)));
+                    tabla.addCell(new Cell().add(new Paragraph(semana.getConocimiento())));
+                    tabla.addCell(new Cell().add(new Paragraph(semana.getActividadAprendizaje())));
+                    contadorSemana++;
 
-                    // Detectar cuántas semanas comparten esta evidencia
-                    int rowspan = 1;
-                    for (int j = i + 1; j < semanas.size(); j++) {
-                        EvidenciaAprendizaje evidenciaComparada = semanas.get(j).getEvidenciasAprendizaje();
-                        if (evidenciaActual.getEvidencia().equals(evidenciaComparada.getEvidencia())) {
-                            rowspan++;
-                        } else {
-                            break;
-                        }
+                    if (k == 0) {
+                        String evidenciaTexto = evidenciaActual.getEvidencia() + "\n("
+                                + evidenciaActual.getTipoEvidencia() + " - "
+                                + evidenciaActual.getInstrumentoEvaluacion() + ")";
+                        Cell celdaEvidencia = new Cell(rowspan, 1)
+                                .add(new Paragraph(evidenciaTexto))
+                                .setVerticalAlignment(VerticalAlignment.MIDDLE)
+                                .setTextAlignment(TextAlignment.LEFT);
+                        tabla.addCell(celdaEvidencia);
+                    }
+                }
+
+                i += rowspan;
+            }
+        }
+
+        // Agregar tabla al documento
+        tabla.setMarginBottom(20);
+        document.add(tabla);
+
+        contadorUnidad++;
+    }
+}
+
+    private static void generarTablaSistemaEvaluacion(List<Desempeño> desempenios, Document document) {
+    Table tabla = new Table(UnitValue.createPercentArray(new float[]{3, 3, 3, 3}))
+        .useAllAvailableWidth();
+
+    tabla.addHeaderCell(new Cell().add(new Paragraph("Desempeños")).setBold());
+    tabla.addHeaderCell(new Cell().add(new Paragraph("Habilidades requeridas")).setBold());
+    tabla.addHeaderCell(new Cell().add(new Paragraph("Evidencias de Aprendizaje")).setBold());
+    tabla.addHeaderCell(new Cell().add(new Paragraph("Instrumentos de Evaluación")).setBold());
+
+    for (Desempeño d : desempenios) {
+        Unidad unidad = d.getUnidad();
+        List<HabilidadRequerida> habilidades = unidad.getHabilidadesRequeridas();
+
+        int totalFilasDesempeño = habilidades.stream()
+            .flatMap(h -> h.getSemanas().stream())
+            .collect(Collectors.groupingBy(s -> s.getEvidenciasAprendizaje().getEvidencia()))
+            .values().stream()
+            .mapToInt(List::size).sum();
+
+        boolean primeraFilaDesempeño = true;
+
+        for (HabilidadRequerida habilidad : habilidades) {
+            List<Semana> semanas = habilidad.getSemanas();
+
+            // Agrupar semanas por evidencia
+            Map<String, List<Semana>> semanasPorEvidencia = semanas.stream()
+                .collect(Collectors.groupingBy(s -> s.getEvidenciasAprendizaje().getEvidencia()));
+
+            int totalFilasHabilidad = semanasPorEvidencia.values().stream()
+                .mapToInt(List::size).sum();
+
+            boolean primeraFilaHabilidad = true;
+
+            for (Map.Entry<String, List<Semana>> entry : semanasPorEvidencia.entrySet()) {
+                List<Semana> grupo = entry.getValue();
+                EvidenciaAprendizaje evidencia = grupo.get(0).getEvidenciasAprendizaje(); // todas comparten la misma
+
+                for (int i = 0; i < grupo.size(); i++) {
+                    Semana semana = grupo.get(i);
+
+                    // Celda de Desempeño
+                    if (primeraFilaDesempeño) {
+                        tabla.addCell(new Cell(totalFilasDesempeño, 1)
+                            .add(new Paragraph(d.getDesempeño())));
+                        primeraFilaDesempeño = false;
                     }
 
-                    // Agregar filas por cada semana
-                    for (int k = 0; k < rowspan; k++) {
-                        Semana semana = semanas.get(i + k);
-                        tabla.addCell(new Cell().add(new Paragraph("Semana " + semana.getNumeroSemana())));
-                        tabla.addCell(new Cell().add(new Paragraph(semana.getConocimiento())));
-                        tabla.addCell(new Cell().add(new Paragraph(semana.getActividadAprendizaje())));
-
-                        if (k == 0) {
-                            String evidenciaTexto = evidenciaActual.getEvidencia() + "\n("
-                                    + evidenciaActual.getTipoEvidencia() + " - "
-                                    + evidenciaActual.getInstrumentoEvaluacion() + ")";
-                            Cell celdaEvidencia = new Cell(rowspan, 1)
-                                    .add(new Paragraph(evidenciaTexto))
-                                    .setVerticalAlignment(VerticalAlignment.MIDDLE)
-                                    .setTextAlignment(TextAlignment.LEFT);
-                            tabla.addCell(celdaEvidencia);
-                        }
+                    // Celda de Habilidad
+                    if (primeraFilaHabilidad) {
+                        tabla.addCell(new Cell(totalFilasHabilidad, 1)
+                            .add(new Paragraph(habilidad.getHabilidad())));
+                        primeraFilaHabilidad = false;
                     }
 
-                    i += rowspan;
+                    // Celda de Evidencia (fusionada si es la primera del grupo)
+                    if (i == 0) {
+                        tabla.addCell(new Cell(grupo.size(), 1)
+                            .add(new Paragraph(evidencia.getEvidencia())));
+                        tabla.addCell(new Cell(grupo.size(), 1)
+                            .add(new Paragraph(evidencia.getInstrumentoEvaluacion())));
+                    }
                 }
             }
-
-            // Agregar tabla al documento
-            tabla.setMarginBottom(20);
-            document.add(tabla);
-
-            contadorUnidad++;
         }
     }
 
+    document.add(tabla);
+}
 }
